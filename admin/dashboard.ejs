@@ -32,6 +32,39 @@
 
   <script src="../../school/js/jquery-3.2.1.min.js"></script>
 
+  <style>
+    .container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    select,
+    button {
+      padding: 10px;
+      margin: 5px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .loading {
+      display: none;
+      margin-left: 10px;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -374,17 +407,23 @@
             </div>
           </div>
         </fieldset>
-
-
-        <div class="text-center" style="margin-top: 15px;">
-          <a href=""><button class="btn btn-primary">Download Statement of
-              Results</button></a>
-        </div>
-
-
     </section>
 
+    <div class="container">
+      <select id="classSelect">
+        <option value="">Select a class</option>
+        <% classes.forEach(function(className) { %>
+          <option value="<%= className.name %>">
+            <%= className.name %>
+          </option>
+          <% }); %>
+      </select>
+      <button id="downloadBtn" class="btn btn-primary">Download Statement of Result</button>
+      <span class="loading">Processing Pleace wait ...</span>
+    </div>
   </main><!-- End #main -->
+
+
 
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
@@ -429,6 +468,50 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
       class="bi bi-arrow-up-short"></i></a>
+
+  <script>
+    $(document).ready(function () {
+      $('#downloadBtn').click(function () {
+        var selectedClass = $('#classSelect').val();
+        console.log(selectedClass);
+        if (selectedClass) {
+          $('.loading').show();
+          $('#downloadBtn').prop('disabled', true);
+
+          fetch('http://localhost:3000/download-master-scoresheet/' + encodeURIComponent(selectedClass), {
+            method: 'GET',
+          })
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('Network response was not ok');
+              }
+              return response.blob();
+            })
+            .then(blob => {
+              var url = window.URL.createObjectURL(blob);
+              var a = document.createElement('a');
+              a.href = url;
+              a.download = 'MasterScoreSheet_' + selectedClass + '.pdf';
+              document.body.appendChild(a);
+              a.click();
+              window.URL.revokeObjectURL(url);
+              a.remove();
+            })
+            .catch(error => {
+              console.error('Error:', error);
+              alert('Error downloading the file. Please try again.');
+            })
+            .finally(() => {
+              $('.loading').hide();
+              $('#downloadBtn').prop('disabled', false);
+            });
+        } else {
+          alert('Please select a class first.');
+        }
+      });
+    });
+  </script>
+
 
 
   <script>

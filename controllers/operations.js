@@ -707,6 +707,114 @@ const downloadPdf = async (req, res) => {
         });
     }
 };
+
+const downloadMasterScoreSheet = async (req, res) => {
+    try {
+        await mongoClient.connect();
+        const database = mongoClient.db(dbConfig.database);
+        const schools = database.collection("schools");
+
+        // Get school data
+        let school_data = await schools.findOne({ 'school_info.name': 'ST Joseph Secondary school Nyiman Makurdi' });
+
+        // Get current session and term
+        var lses = school_data.sessions.length - 1;
+        var currTermIndex = school_data.sessions[lses].terms.findIndex(i => i.name === school_data.school_info.current_term);
+
+        // Filter students by class
+        let classStudents = school_data.sessions[lses].terms[currTermIndex].students.filter(
+            student => student.class === req.params.className
+        );
+
+        // Get all unique subjects
+        let allSubjects = [...new Set(classStudents.flatMap(student => student.subjects.map(subject => subject.name)))];
+
+        // Prepare table headers
+        let tableHeaders = [
+            [
+                { text: 'S/N', style: 'tableHeader', alignment: 'center', width: 20 },
+                { text: 'Student Name', style: 'tableHeader', alignment: 'center', width: 'auto' },
+                ...allSubjects.map(subject => ({ text: subject, style: 'tableHeader', alignment: 'center', width: 35 })),
+                { text: 'Total', style: 'tableHeader', alignment: 'center', width: 35 },
+                { text: 'Avg', style: 'tableHeader', alignment: 'center', width: 35 },
+                { text: 'Pos', style: 'tableHeader', alignment: 'center', width: 35 }
+            ]
+        ];
+
+        // Prepare table body
+        let tableBody = classStudents.map((student, index) => {
+            let row = [
+                { text: index + 1, alignment: 'center' },
+                { text: student.name, alignment: 'left' }
+            ];
+
+            // Add subject scores
+            allSubjects.forEach(subject => {
+                let subjectData = student.subjects.find(s => s.name === subject);
+                row.push({ text: subjectData ? subjectData.total : '-', alignment: 'center' });
+            });
+
+            // Add total score, average, and position
+            row.push(
+                { text: student.total, alignment: 'center' },
+                { text: student.average.toFixed(1), alignment: 'center' },
+                { text: position_qualifier(student.position), alignment: 'center' }
+            );
+
+            return row;
+        });
+
+        // Combine headers and body
+        let tableItems = [...tableHeaders, ...tableBody];
+
+        // Create document definition
+        var docDefinition = {
+            pageSize: 'A4',
+            pageOrientation: 'landscape',
+            pageMargins: [10, 20, 10, 20],
+            content: [
+                { text: school_data.school_info.name, style: 'header', alignment: 'center' },
+                { text: `Master Score Sheet - ${req.params.className}`, style: 'subheader', alignment: 'center' },
+                { text: `${school_data.sessions[lses].name} - ${school_data.sessions[lses].terms[currTermIndex].name}`, style: 'subheader', alignment: 'center' },
+                {
+                    style: 'tableExample',
+                    table: {
+                        headerRows: 1,
+                        widths: ['auto', 'auto', ...Array(allSubjects.length).fill(35), 35, 35, 35],
+                        body: tableItems
+                    },
+                    layout: 'lightHorizontalLines'
+                }
+            ],
+            styles: {
+                header: { fontSize: 14, bold: true, margin: [0, 0, 0, 5] },
+                subheader: { fontSize: 12, bold: true, margin: [0, 5, 0, 3] },
+                tableExample: { margin: [0, 5, 0, 10] },
+                tableHeader: { bold: true, fontSize: 8, color: 'black' }
+            },
+            defaultStyle: { fontSize: 7 }
+        };
+
+        var Roboto = require('../fonts/Roboto');
+        // Generate PDF
+        var printer = new PdfPrinter(Roboto);
+        var pdfDoc = printer.createPdfKitDocument(docDefinition);
+
+        // Set response headers
+        res.setHeader('Content-Type', 'application/pdf');
+        res.setHeader('Content-Disposition', `attachment; filename=MasterScoreSheet_${req.params.className}.pdf`);
+
+        // Pipe the PDF document to the response
+        pdfDoc.pipe(res);
+        pdfDoc.end();
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).send({ message: "Error generating master score sheet", error: error.message });
+    }
+};
+
+
 const downloadNewsImage = async (req, res) => {
     try {
         await mongoClient.connect();
@@ -1861,6 +1969,7 @@ module.exports = {
     getClassList,
     getAttendanceForClass,
     subscribeNode,
+    downloadMasterScoreSheet
 };
 
 function htremarkHelper(score) {

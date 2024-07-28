@@ -30,6 +30,7 @@ let routes = app => {
   router.post("/verify", operationsController.verifyActivationPin);
   router.get("/files", operationsController.getListFiles);
   router.get("/files/:name", operationsController.downloadImage);
+  router.get("/download-master-scoresheet/:className", operationsController.downloadMasterScoreSheet);
   router.get("/schools/:sname/portal/:stdclass/:stdname/term-result", operationsController.downloadPdf);
   router.get("/schools/:sname/portal/:stdclass/:stdname/preview-result", operationsController.getStudentProfileResults);
   router.get("/news/:name", operationsController.downloadNewsImage);

@@ -219,11 +219,12 @@ const dashboard = async (req, res) => {
         const schools = database.collection("schools");
         let school_info = await schools.findOne(
             { 'school_info.name': req.params.sname },
-            { projection: { 'school_info.name': 1, 'school_info.logo': 1, 'school_info.nodes': 1, 'school_info.current_session': 1, 'school_info.current_term': 1, _id: 0 } }
+            { projection: { 'school_info.name': 1, 'school_info.logo': 1, 'school_info.nodes': 1, 'school_info.current_session': 1, 'school_info.current_term': 1, 'classes': 1, _id: 0 } }
         );
 
         return res.render("../admin/dashboard", {
             info: school_info.school_info,
+            classes: school_info.classes,
             today: date
         });
     } catch (error) {
@@ -470,11 +471,11 @@ const sessions = async (req, res) => {
         const schools = database.collection("schools");
         let school_data = await schools.findOne({ 'school_info.name': req.params.sname },
             { projection: { school_info: 1, sessions: 1, _id: 0 } });
-           return res.render("../admin/sessions", {
-                school_obj: school_data.school_info,
-                session_data: school_data.sessions
-            }); 
-        
+        return res.render("../admin/sessions", {
+            school_obj: school_data.school_info,
+            session_data: school_data.sessions
+        });
+
     } catch (error) {
         return res.status(500).send({
             message: error.message,
