@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#3264f5" />
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#3264f5">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#3264f5">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#3264f5">
+
+  <title>Register your School</title>
+  <link rel="stylesheet" href="landing/reg.css">
+
+  <script src="../admin/assets/js/jquery-3.6.1.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 id="title" class="text-center">
+        Register your Primary School
+      </h1>
+    </header>
+
+    <p id="description" class="description text-center">
+      To the Orbital Node Platform
+    </p>
+
+    <form id="reg-form" action="register" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="name" id="name-label">School Name</label>
+        <input type="text" name="name" id="name" class="form-control" placeholder="Enter your School name" required />
+      </div>
+
+      <div class="form-group">
+        <label for="logo" id="logo-label">School Logo</label>
+        <input type="file" name="images" id="logo" accept="image/*" onchange="loadFile(event, 'logo-i')" required><br />
+        <img id="logo-i" />
+      </div>
+
+      <div class="form-group">
+        <label id="email-label" for="email">School Email</label>
+        <input type="email" name="email" id="email" class="form-control" placeholder="Enter your School Email"
+          required />
+      </div>
+
+      <div class="form-group">
+        <label id="email-label" for="email">Phone Number</label>
+        <input type="text" name="phone" id="phone" class="form-control" placeholder="Enter your School Phone Number"
+          required />
+      </div>
+
+      <input type="hidden" name="category" id="category" value="primary">
+
+      <div class="form-group">
+        <label id="adress-label" for="adress">School Adress</label>
+        <input type="text" name="adress" id="adress" class="form-control" placeholder="Enter your School Adress"
+          required />
+      </div>
+      <div class="form-group">
+        <label id="state-label" for="state">State</label>
+        <input type="text" name="state" id="state" class="form-control" placeholder="Enter your State" required />
+      </div>
+
+      <div class="form-group">
+        <label for="logo" id="logo-label">School Picture 1</label>
+        <input type="file" name="images" id="pic1" accept="image/*" onchange="loadFile(event, 'pic1-i')" required><br />
+        <img id="pic1-i" />
+      </div>
+
+      <div class="form-group">
+        <label for="logo" id="logo-label">School Picture 2</label>
+        <input type="file" name="images" id="pic2" accept="image/*" onchange="loadFile(event, 'pic2-i')" required><br />
+        <img id="pic2-i" />
+      </div>
+
+      <div class="form-group">
+        <label id="about-label" for="about">About School<span class="clue"> (brief) </span></label>
+        <input type="text" name="about" id="about" class="form-control" placeholder="About your School" required />
+      </div>
+
+      <div class="form-group">
+        <p>About School
+          <span class="clue">(detailed)</span>
+        </p>
+        <textarea id="d_about" class="input-textarea form-control" name="d_about"
+          placeholder="Type about here..."></textarea>
+      </div>
+
+
+      <div class="form-group">
+        <label id="email-label" for="email">Head Teacher's Name</label>
+        <input type="text" name="p_name" id="p_name" class="form-control" placeholder="Type in the Principal's Name"
+          required />
+      </div>
+
+      <div class="form-group">
+        <label for="ppic" id="ppic-label">Head Teacher's Picture</label>
+        <input type="file" name="images" id="ppic" accept="image/*" onchange="loadFile(event, 'principal-i')"
+          required><br />
+        <img id="principal-i" />
+      </div>
+
+      <div class="form-group">
+        <label id="email-label" for="vp1name">Assistant Head Teacher's Name</label>
+        <input type="text" name="vp1name" id="vp1name" class="form-control"
+          placeholder="Type in the Vice Principal's Name" required />
+      </div>
+
+      <div class="form-group">
+        <label for="vp1pic" id="vp1pic-label">Assistant Head Teacher's Picture</label>
+        <input type="file" name="images" id="vp1pic" accept="image/*" onchange="loadFile(event, 'vp1-i')"
+          required><br />
+        <img id="vp1-i" />
+      </div>
+
+      <div class="form-group">
+        <label for="stamp" id="stamp-label">School Stamp <span class="clue">(optional)</span></label>
+        <input type="file" name="images" id="stamp" accept="image/*" onchange="loadFile(event, 'stamp-i')"><br />
+        <img id="stamp-i" />
+      </div>
+
+      <div class="form-group">
+        <p>Mission</p>
+        <textarea id="mission" class="input-textarea form-control" name="mission"
+          placeholder="Type in your school's mission here..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <p>Vision</p>
+        <textarea id="vision" class="input-textarea form-control" name="vision"
+          placeholder="Type in your school's vision here..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <p>Anthem</p>
+        <textarea id="anthem" class="input-textarea form-control" name="anthem"
+          placeholder="Type in your school's Anthem here..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <p>Would you like orbital node to manage payment of fees to your school?</p>
+        <label> <input name="fees" value="yes" type="radio" class="input-radio" checked />Yes</label>
+        <label> <input name="fees" id="fees" value="no" type="radio" class="input-radio" />No</label>
+      </div>
+
+      <div class="form-group">
+        <p>Would you like to use our Electronic Register feature?</p>
+        <label> <input name="e_register" value="yes" type="radio" class="input-radio" checked />Yes</label>
+        <label> <input name="e_register" id="e_register" value="no" type="radio" class="input-radio" />No</label>
+      </div>
+
+      <div class="form-group">
+        <label id="email-label" for="email">Agent Referral Code <span class="clue">(optional)</span></label>
+        <input type="text" name="agent" id="agent" class="form-control" placeholder="Type in a referral code" />
+      </div>
+
+      <div class="form-group">
+        <label id="email-label" for="email">Activation PIN</label>
+        <input type="text" name="activation" id="activation" class="form-control"
+          placeholder="Type in your school activation PIN" required />
+      </div>
+
+      <p>Please ensure that the activation PIN you are typing in is Correct because your School will not be registered
+        if our
+        system is unable to Authenticate the PIN you entered. Thanks</p>
+
+      <button type="submit" id="sub" style="display: none;"></button>
+    </form>
+    <div class="form-group">
+      <button type="button" id="regist_b" class="submit-button" onclick="pay()">
+        Register
+      </button>
+    </div>
+    <div class="text-center" style="margin-bottom: 30px;">
+      <a href="/" style="color: white;margin-bottom: 10px; text-decoration: none;">Back to site</a>
+    </div>
+
+    <script>
+      var loadFile = function (event, id) {
+        var output = document.getElementById(id);
+        output.src = URL.createObjectURL(event.target.files[0]); output.onload = function () {
+          URL.revokeObjectURL(output.src)
+        }
+      }
+    </script>
+  </div>
+
+  <script>
+    var paymentForm = document.getElementById('reg-form');
+    var name = document.getElementById('name');
+    var email = document.getElementById('email');
+    var subBtn = document.getElementById('sub');
+
+    function pay() {
+      if (name.value === '' || email.value === '') {
+        subBtn.click();
+      }
+      else {
+        // payWithPaystack();
+        subBtn.click();
+      }
+    }
+    /*  function payWithPaystack() {
+        var ref = "ref" + Math.random().toString(16).slice(2);
+        var handler = PaystackPop.setup({
+          key: 'pk_live_b3760d28c299381e3506524e5da656d549c3e60f',
+          email: document.getElementById('email').value,
+          amount: 7000 * 100,
+          currency: 'NGN',
+          ref: ref,
+          callback: function (response) {
+            var reference = response.reference;
+            $.ajax({
+              url: 'verify_transaction?reference=' + response.reference,
+              method: 'get',
+              success: function (data) {
+                subBtn.click();
+              }
+            });
+          },
+          onClose: function () {
+          },
+        });
+        handler.openIframe();
+      } */
+  </script>
+  <!-- <script src="https://js.paystack.co/v1/inline.js"></script> -->
+</body>
+
+</html>

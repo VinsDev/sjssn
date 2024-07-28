@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Students / Fees Status</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../../../../admin/assets/img/logo.png" rel="icon">
+  <link href="../../../../admin/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../../../../admin/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../../../admin/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../../../../admin/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../../../../admin/assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="../../../../admin/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="../../../../admin/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="../../../../admin/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../../../../admin/assets/css/style.css" rel="stylesheet">
+  <link href="../../../../admin/assets/css/assessments.css" rel="stylesheet">
+
+  <!-- Jquery -->
+  <script src="../../../../admin/assets/js/jquery-3.6.1.js"></script>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="/admin/<%= school_obj.name %>/dashboard" class="logo d-flex align-items-center">
+        <img src="../../../../admin/assets/img/logo.png" alt="">
+        <span class="d-none d-lg-block">Orbital Admin</span>
+      </a>
+      <!--       <i class="bi bi-list toggle-sidebar-btn toggled"></i>
+ -->
+    </div><!-- End Logo -->
+
+
+    <div class="d-flex align-items-center justify-content-between tex">
+      <span class="d-none d-lg-block">
+        <div class="pad">Manage the contents of your school Website and Database</div>
+      </span>
+    </div>
+
+
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item dropdown pe-3">
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="<%= school_obj.logo %>" alt="Profile">
+            <span class="d-none d-md-block dropdown-toggle ps-2">
+              <%= school_obj.name %>
+            </span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6>
+                <%= school_obj.name %>
+              </h6>
+              <span>Admin Account</span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="/admin">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Sign Out</span>
+              </a>
+            </li>
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+
+
+
+  <div class="pagetitle">
+    <h1>Term Assessments</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/admin/<%=school_obj.name%>/dashboard">Home</a></li>
+        <li class="breadcrumb-item">English</li>
+        <li class="breadcrumb-item active">PRI 3
+        </li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+
+  <!-- REFERENCE SELECTOR -->
+  <div class="card">
+    <div class="internal">
+      <div class="rrr">
+        <div class="row md-3">
+          <label class="col-sm-5 col-form-label">Session</label>
+          <div class="col-sm-8">
+            <select class="form-select" aria-label="Session" id="sessionSelector" onchange="updateData()">
+              <% for(var i=0; i < sessions_data.length; i++){ %>
+                <option value="<%= sessions_data[i].name %>">
+                  <%= sessions_data[i].name %>
+                </option>
+                <% } %>
+            </select>
+          </div>
+        </div>
+
+        <div class="row md-1">
+          <label class="col-sm-5 col-form-label">Term</label>
+          <div class="col-sm-8">
+            <select class="form-select" aria-label="Term" id="termSelector" onchange="updateData()">
+              <option value="first" selected>First</option>
+              <option value="second">Second</option>
+              <option value="third">Third</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <button class="btn btn-primary" style="transform: translate(0, 50%);" onclick="location.reload()">Refresh
+            Page</button>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="row">
+      <div class="col-md-12 offset-md-0">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              <b id="cls">
+                <%=className%>
+              </b><b>Term Assessments: </b><em id="subname">
+                <%=subject%>
+              </em>
+            </h5>
+
+            <!-- TABLE DIVS -->
+            <div class="panel panel-default">
+              <div style="width: 98%; overflow-x: auto;">
+                <div class="panel-body">
+                  <div class="tbl_user_data" id="container"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center" style="margin-bottom: 15px;">
+          <button class="btn btn-primary" onclick="upload()">Save Changes</button>
+          <a href="/admin/<%= school_obj.name %>/continous-assessments"><button class="btn btn-primary"
+              style="margin-left: 20px;">Back</button></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Powered by <strong><span>Orbital Node 2023</span></strong>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+
+
+
+
+  <!-- Vendor JS Files -->
+  <script src="../../../../admin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../../../admin/assets/vendor/quill/quill.min.js"></script>
+  <script src="../../../../admin/assets/vendor/tinymce/tinymce.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../../../../admin/assets/js/main.js"></script>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
+
+
+  <!-- TABLE LOGIC -->
+  <script type="text/javascript">
+    var student_names = [];
+    var assessments_data = [];
+    $(document).ready(function ($) {
+      updateData();
+    });
+
+    function updateData() {
+
+      var coords = {
+        session: $("#sessionSelector").val(),
+        class: $('#cls').text().trim(),
+        term: $("#termSelector").val(),
+        subject: $("#subname").text().trim(),
+      };
+
+      // Send the AJAX request using jQuery
+      $.LoadingOverlay("show");
+      $.ajax({
+        type: "POST",
+        url: "/admin/<%= school_obj.name %>/getSubjectsResults",
+        data: JSON.stringify(coords),
+        contentType: "application/json",
+        dataType: "json",
+        success: function (data) {
+          console.log(data);
+          student_names = data.student_names;
+          assessments_data = data.assessments_data;
+
+          if (assessments_data.length === 0) {
+            var tbl = '';
+            tbl += '<p>No students found in your current selection</p>';
+            $('#container').html(tbl);
+            return;
+          }
+
+          var tbl = '';
+          tbl += '<table class="table table-bordered">'
+          tbl += '<thead>';
+          tbl += '<tr>';
+          tbl += '<th>S/N</th>';
+          tbl += '<th>Name</th>';
+          tbl += '<th>1st CA</th>';
+          tbl += '<th>2nd CA</th>';
+          tbl += '<th>3rd CA</th>';
+          tbl += '<th>Exams</th>';
+          tbl += '</tr>';
+          tbl += '</thead>';
+          tbl += '<tbody>';
+
+          $.each(assessments_data, function (index, val) {
+            var row_id = index;
+            tbl += '<tr row_id="' + row_id + '">';
+            tbl += '<td col_name="sn">' + (index + 1) + '</td>';
+            tbl += '<td col_name="name">' + student_names[index] + '</td>';
+            tbl += '<td class="row_data" edit_type="click" col_name="ass1">' + negative(val.ass[0]) + '</td>';
+            tbl += '<td class="row_data" edit_type="click" col_name="ass2">' + negative(val.ass[1]) + '</td>';
+            tbl += '<td class="row_data" edit_type="click" col_name="test1">' + negative(val.ass[2]) + '</td>';
+            tbl += '<td class="row_data" edit_type="click" col_name="test2">' + negative(val.ass[3]) + '</td>';
+            tbl += '</tr>';
+          });
+          tbl += '</tbody>';
+          tbl += '</table>'
+
+          $('#container').html(tbl);
+          $(document).on('click', '.row_data', function (event) {
+            event.preventDefault();
+            $(this).closest('td').attr('contenteditable', 'true');
+            $(this).focus();
+          })
+
+          $(document).on('focusout', '.row_data', function (event) {
+            event.preventDefault();
+
+            var row_id = $(this).closest('tr').attr('row_id');
+
+            var row_div = $(this)
+              .removeClass('bg-warning')
+              .css('padding', '')
+
+            var col_name = row_div.attr('col_name');
+            var col_val = row_div.html();
+
+            var arr = {};
+            arr[col_name] = col_val;
+
+            $.extend(arr, { row_id: row_id });
+
+            switch (col_name) {
+              case 'ass1': assessments_data[row_id].ass[0] = col_val != '' ? Number(col_val) : -1;
+                break;
+              case 'ass2': assessments_data[row_id].ass[1] = col_val != '' ? Number(col_val) : -1;
+                break;
+              case 'test1': assessments_data[row_id].ass[2] = col_val != '' ? Number(col_val) : -1;
+                break;
+              case 'test2': assessments_data[row_id].ass[3] = col_val != '' ? Number(col_val) : -1;
+                break;
+              case 'exams': assessments_data[row_id].ass[4] = col_val != '' ? Number(col_val) : -1;
+              default:
+                break;
+            }
+          })
+        },
+        complete: function () {
+          $.LoadingOverlay("hide", true);
+        },
+        error: function (xhr, status, error) {
+          console.error(error);
+        }
+      });
+    }
+
+    function negative(number) {
+      if (number < 0) {
+        return '';
+      }
+      else {
+        return number;
+      }
+    }
+
+    function negative_rev(value) {
+      if (value === "") {
+        return -1;
+      }
+      else {
+        return value;
+      }
+    }
+
+    function upload() {
+      fetch('/admin/<%= school_obj.name %>/updateSubjectsResults', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          session: $("#sessionSelector").val(),
+          class: $("#cls").text().trim(),
+          term: $("#termSelector").val(),
+          subname: $("#subname").text().trim(),
+          student_names: student_names,
+          assessments_data: assessments_data,
+        })
+      }).then((res) => {
+        if (res.status === 200) {
+          alert("Changes saved successfully");
+        }
+      });
+    }
+  </script>
+
+</body>
+
+</html>

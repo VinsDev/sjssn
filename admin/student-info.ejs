@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Students / Students Information</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../../admin/assets/img/logo.png" rel="icon">
+  <link href="../../admin/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../../admin/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../admin/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../../admin/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../../admin/assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="../../admin/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="../../admin/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="../../admin/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="../../admin/assets/css/style.css" rel="stylesheet">
+
+  <!-- Jquery -->
+  <script src="../../admin/assets/js/jquery-3.6.1.js"></script>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="/admin/<%= school_obj.name %>/dashboard" class="logo d-flex align-items-center">
+        <img src="../../admin/assets/img/logo.png" alt="">
+        <span class="d-none d-lg-block">Orbital Admin</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+
+    <div class="d-flex align-items-center justify-content-between tex">
+      <span class="d-none d-lg-block">
+        <div class="pad">Manage the contents of your school Website and Database</div>
+      </span>
+    </div>
+
+
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item dropdown pe-3">
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="<%= school_obj.logo %>" alt="Profile">
+            <span class="d-none d-md-block dropdown-toggle ps-2">
+              <%= school_obj.name %>
+            </span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6>
+                <%= school_obj.name %>
+              </h6>
+              <span>Admin Account</span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="#changePasswordModal" data-bs-toggle="modal">
+                <i class="bi bi-grid"></i>
+                <span>Change Login Password</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="/admin">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Sign Out</span>
+              </a>
+            </li>
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/admin/<%=school_obj.name%>/dashboard">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-cloud"></i><span>Website</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="school-info">
+              <i class="bi bi-circle"></i><span>School Information</span>
+            </a>
+          </li>
+          <li>
+            <a href="upcoming-news">
+              <i class="bi bi-circle"></i><span>Upcoming news and Events</span>
+            </a>
+          </li>
+          <li>
+            <a href="fees-info">
+              <i class="bi bi-circle"></i><span>Fees Payment Details</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Website Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link " data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-people"></i><span>Students</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="student-info" class="active">
+              <i class="bi bi-circle"></i><span>Students Information</span>
+            </a>
+          </li>
+          <li>
+            <a href="student-fees">
+              <i class="bi bi-circle"></i><span>Students Fees Status</span>
+            </a>
+          </li>
+          <a href="student-register">
+            <i class="bi bi-circle"></i><span>E-Register</span>
+          </a>
+      </li>
+    </ul>
+    </li><!-- End Students Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-layout-text-window-reverse"></i><span>Results</span><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <li>
+          <a href="blue-print">
+            <i class="bi bi-circle"></i><span>Assessments Structure</span>
+          </a>
+        </li>
+        <li>
+          <a href="continous-assessments">
+            <i class="bi bi-circle"></i><span>Continous Assessment</span>
+          </a>
+        </li>
+        <li>
+          <a href="student-results">
+            <i class="bi bi-circle"></i><span>Students Results Preview</span>
+          </a>
+        </li>
+      </ul>
+    </li><!-- End Results Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-person-check"></i><span>Parents</span><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <li>
+          <a href="parents">
+            <i class="bi bi-circle"></i><span>Feedbacks</span>
+          </a>
+        </li>
+      </ul>
+    </li><!-- End Parents Nav -->
+
+    <li class="nav-heading">References</li>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="sessions">
+        <i class="bi bi-collection"></i>
+        <span>Sessions</span>
+      </a>
+    </li><!-- End Sessions Page Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="classes">
+        <i class="bi bi-menu-button-wide"></i>
+        <span>Classes</span>
+      </a>
+    </li><!-- End Classes Page Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="subjects">
+        <i class="bi bi-book"></i>
+        <span>Subjects</span>
+      </a>
+    </li><!-- End Subjects Page Nav -->
+
+    </ul>
+
+  </aside><!-- End Sidebar-->
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Students Information</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Students</li>
+          <li class="breadcrumb-item active">Students Information</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+    <% if(sessions_data.length !=0 && class_data.length !=0 && class_data[0].subjects.length !=0 ) { %>
+      <section class="section">
+        <div class="col-md-12 offset-md-0">
+          <!-- REFERENCE SELECTORS -->
+          <div class="card">
+            <div class="internal">
+              <div class="rrr">
+                <div class="row md-3">
+                  <label class="col-sm-5 col-form-label">Session</label>
+                  <div class="col-sm-8">
+                    <select class="form-select" aria-label="Session" id="sessionSelector" onchange="updateData()">
+                      <% for(var i=0; i < sessions_data.length; i++){ %>
+                        <option value="<%= sessions_data[i].name %>">
+                          <%= sessions_data[i].name %>
+                        </option>
+                        <% } %>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row md-1">
+                  <label class="col-sm-5 col-form-label">Term</label>
+                  <div class="col-sm-8">
+                    <select class="form-select" aria-label="Term" id="termSelector" onchange="updateData()">
+                      <option value="first" selected>First</option>
+                      <option value="second">Second</option>
+                      <option value="third">Third</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row md-1">
+                  <label class="col-sm-5 col-form-label">Class</label>
+                  <div class="col-sm-8">
+                    <select class="form-select" aria-label="Class" id="classSelector" onchange="updateData()">
+                      <% for(var i=0; i < class_data.length; i++){ %>
+                        <option value="<%= class_data[i].name %>">
+                          <%= class_data[i].name %>
+                        </option>
+                        <% } %>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Info -->
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Students</h5>
+              <div style="height: 10px;"></div>
+
+              <!-- Table with hoverable rows -->
+              <div style="width: 100%; overflow-x: auto;">
+                <table class="table table-hover" id="myTable">
+                </table>
+              </div>
+
+              <!-- End Table with hoverable rows -->
+
+            </div>
+          </div>
+          <div class="text-center">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addStudentForm"
+              id="adstd" style="margin-right: 15px;">Add
+              Student</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#import"
+              id="impstd">Import
+              Students</button>
+
+          </div>
+        </div>
+        </div>
+      </section>
+
+      <!-- Add Student Modal -->
+      <div class="modal fade" id="addStudentForm" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Add Student to <b id="c"></b> [<i id="s"></i> - <i
+                  id="t"></i> term ]</h5>
+              <button class="close" data-bs-dismiss="modal"
+                style="border: none; background-color: transparent;">&times;</button>
+            </div>
+            <div class="modal-body">
+              <form class="row g-3 needs-validation" method="post" action="/admin/<%= school_obj.name %>/students"
+                id="addStudentFormId">
+                <div class="col-12">
+                  <label for="yourName" class="form-label">Student Full Name</label>
+                  <input type="text" name="name" class="form-control" id="yourName" required>
+                  <div class="invalid-feedback">Please, enter student name!</div>
+                </div>
+                <div class="row md-1">
+                  <label class="col-sm-5 col-form-label">Gender</label>
+                  <div class="col-sm-8">
+                    <select class="form-select" aria-label="Term" name="gender">
+                      <option value="male" selected>Male</option>
+                      <option value="female">Female</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <label for="yourEmail" class="form-label">Admission Number</label>
+                  <input type="text" name="admission" class="form-control" id="admission" required>
+                  <div class="invalid-feedback">Please enter Admission Number!</div>
+                </div>
+
+                <div class="col-12">
+                  <label for="yourEmail" class="form-label">Pin</label>
+                  <input type="text" name="pin" class="form-control" id="pin" required>
+                  <div class="invalid-feedback">Please enter pin!</div>
+                </div>
+
+                <label class="col-sm-5 col-form-label">Subjects</label>
+                <div class="col-sm-8">
+                  <div class="chk_subs"></div>
+                </div>
+
+
+                <div class="col-12">
+                  <button id="studentSubmit" type="submit" style="display: none;"></button>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="createStudent">Create</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nodes" id="nbutt"
+        style="display: none;">Nbutt</button>
+
+      <!-- Import Students Modal -->
+      <div class="modal fade" id="import" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Import Students from</h5>
+              <button class="close" data-bs-dismiss="modal"
+                style="border: none; background-color: transparent;">&times;</button>
+            </div>
+            <div class="modal-body text-center">
+              <button type="button" class="btn btn-primary" onclick="importStuds('first');" id="t1">First term</button>
+              <button type="button" class="btn btn-primary" onclick="importStuds('second');" id="t2">Second
+                term</button>
+              <button type="button" class="btn btn-primary" onclick="importStuds('third');" id="t3">Third term</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- Activate Term Modal -->
+      <div class="modal fade" id="nodes" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Add Student</h5>
+              <button class="close" data-bs-dismiss="modal"
+                style="border: none; background-color: transparent;">&times;</button>
+            </div>
+            <div class="modal-body">
+              <p>Selected term is not activated. Do you want to use one of your available nodes to activate the term?
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+              <button type="button" class="btn btn-primary" onclick="activateTerm()">Yes</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteStudentVerification"
+        id="dellbutt" style="display: none;">DellButt</button>
+
+      <!-- Delete Student Modal -->
+      <div class="modal fade" id="deleteStudentVerification" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle1">Delete Student</h5>
+              <button class="close" data-bs-dismiss="modal"
+                style="border: none; background-color: transparent;">&times;</button>
+            </div>
+            <div class="modal-body">
+              <p>Are you sure you want to delete student ? :
+              <div id="stname"></div>
+              </p>
+              <p>This action will erase all data related to the student</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+              <button type="button" class="btn btn-primary" onclick="deleteStudent()">Yes</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Change Password Modal -->
+      <div class="modal fade" id="changePasswordModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Change Password</h5>
+              <button class="close" data-bs-dismiss="modal"
+                style="border: none; background-color: transparent;">&times;</button>
+            </div>
+            <div class="modal-body">
+              <form class="row g-3 needs-validation" method="post" action="/admin/<%= school_obj.name %>/changePassword"
+                id="passwordForm">
+                <div class="col-12">
+                  <label for="yourName" class="form-label">Old Password</label>
+                  <input type="text" name="oldPass" class="form-control" id="old-psw" required>
+                  <div class="invalid-feedback">Please, enter your old password</div>
+                </div>
+                <div class="col-12">
+                  <label for="yourName" class="form-label">New Password</label>
+                  <input type="text" name="newPass" class="form-control" id="new-psw" required>
+                  <div class="invalid-feedback">Please, the new password</div>
+                </div>
+                <button type="submit" id="pswdSubmit" style="display: none;"></button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" onclick="$('#pswdSubmit').click()">Change</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <% } else { %>
+        <div class="text-center">
+          <p>You have not completed the required steps to setup your admin panel hence you will not be able to view or
+            add students to the database. Please follow the steps highlighted below:</p><br>
+          <ul>
+            <li>Create a session</li>
+            <li>Set term starting and Ending dates in the Students >> E-register section</li>
+            <li>Create Classes</li>
+            <li>Add <b>all</b> subjects to classes</li>
+            <li>Add students to class from Student >> Student Information</li>
+          </ul>
+          <i>Please take note that if you do not follow the above instructions in the order stated above, you could
+            possibly encounter
+            problems while working with our system.</i>
+        </div>
+        <% } %>
+  </main><!-- End #main -->
+
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Powered by <strong><span>Orbital Node 2023</span></strong>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+
+  <!-- Vendor JS Files -->
+  <script src="../../admin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../admin/assets/vendor/quill/quill.min.js"></script>
+  <script src="../../admin/assets/vendor/tinymce/tinymce.min.js"></script>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../../admin/assets/js/main.js"></script>
+
+  <script>
+    function updateData() {
+      $.LoadingOverlay("show");
+
+      if ($("#termSelector").val() === 'first') {
+        $('#t1').attr('disabled', true);
+        $('#t1').attr('class', 'btn btn-secondary');
+      } else {
+        $('#t1').attr('disabled', false);
+        $('#t1').attr('class', 'btn btn-primary');
+      }
+
+      if ($("#termSelector").val() === 'second') {
+        $('#t2').attr('disabled', true);
+        $('#t2').attr('class', 'btn btn-secondary');
+      } else {
+        $('#t2').attr('disabled', false);
+        $('#t2').attr('class', 'btn btn-primary');
+      }
+
+      if ($("#termSelector").val() === 'third') {
+        $('#t3').attr('disabled', true);
+        $('#t3').attr('class', 'btn btn-secondary');
+      } else {
+        $('#t3').attr('disabled', false);
+        $('#t3').attr('class', 'btn btn-primary');
+      }
+
+      $.ajax({
+        url: '/admin/<%= school_obj.name %>/getStudents',
+        type: 'POST',
+        data: JSON.stringify({
+          session: $("#sessionSelector").val(),
+          class: $("#classSelector").val(),
+          term: $("#termSelector").val(),
+        }),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+          var payload = data.payload;
+          var content = '';
+          if (payload.length === 0) {
+            $('#myTable').html('No student found in your current selections. You can check another session, term or class. You can also add students to the current selection by pressing the add button below.');
+
+            ($('#s').html($("#sessionSelector").val()));
+            $('#c').html($("#classSelector").val());
+            $('#t').html($("#termSelector").val());
+
+            updateCheckableSubjects();
+
+            return;
+          }
+          content += `
+                <thead>
+                  <tr>
+                    <th scope="col">S/N</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Admission No.</th>
+                    <th scope="col">Class</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>`;
+          content += ' <tbody>';
+          payload.forEach((item, index) => {
+            content += `
+                  <tr data-st-id="${item.name}" class="stdRow">
+                    <th scope="row">${index + 1}</th>
+                    <td>
+                      ${item.name}
+                      </td>
+                    <td>
+                      ${item.gender}
+                    </td>
+                    <td>
+                      ${item.admission}
+                    </td>
+                    <td>
+                      ${item.class}
+                    </td>
+                    <td> 
+                      <button onclick="passDeleteData('${item.name}')"
+                style="border: none; background-color: transparent; color: blue; font-weight: bold;">REMOVE</button>
+                    </td>
+                  </tr>`
+          });
+          content += ' </tbody>';
+          $('#myTable').html(content);
+
+          ($('#s').html($("#sessionSelector").val()));
+          $('#c').html($("#classSelector").val());
+          $('#t').html($("#termSelector").val());
+
+          updateCheckableSubjects();
+
+        },
+        complete: function () {
+          $.LoadingOverlay("hide", true);
+        },
+      });
+
+      return;
+    }
+
+    function importStuds(target) {
+      const data = {
+        target: target,
+        destination: $("#termSelector").val(),
+        session: $("#sessionSelector").val(),
+        class: $("#classSelector").val()
+      };
+
+      // make the AJAX request using jQuery
+      $.ajax({
+        url: window.location.href + '/import',
+        type: 'POST',
+        data: JSON.stringify(data),
+        contentType: 'application/json',
+        success: function (response) {
+          if (response.students.length === 0) {
+            alert("Students not found in selected term!");
+          } else {
+            $('#import').modal('hide');
+            updateData();
+          }
+
+        },
+        error: function (xhr, status, error) {
+          console.log(`Request failed with status ${xhr.status}: ${error}`);
+        }
+      });
+    }
+
+    $(document).ready(function () {
+      updateData();
+
+      $("#addStudentFormId").submit(function (event) {
+        event.preventDefault();
+        var form = $(this);
+        var action = form.attr('action');
+        var formData = form.serializeArray();
+        formData.push({ name: "session", value: $("#sessionSelector").val() });
+        formData.push({ name: "term", value: $("#termSelector").val() });
+        formData.push({ name: "class", value: $("#classSelector").val() });
+        formData = $.param(formData);
+        $(".modal-content").LoadingOverlay("show");
+        $.ajax({
+          type: "POST",
+          url: action,
+          data: formData,
+          success: function (data) {
+
+            $('#addStudentForm').modal('hide');
+            $('#addStudentFormId')[0].reset();
+            $('#addStudentFormId').removeClass('was-validated')
+            updateData();
+          },
+          complete: function () {
+            $(".modal-content").LoadingOverlay("hide", true);
+          },
+          error: function (error) {
+            alert('Oops! Something happened. Pls try again');
+            location.reload();
+          }
+        });
+      });
+
+    });
+
+    function updateCheckableSubjects() {
+      var container = $('.chk_subs');
+      var checkboxes = '';
+      $.ajax({
+        url: '/admin/<%= school_obj.name %>/getClassSubjects/' + $("#classSelector").val(),
+        type: 'GET',
+        success: function (data) {
+          $.each(data.payload, function (index, value) {
+            checkboxes += '<input type="checkbox" id="sub_' + index + '" name="sub_' + index + '"' + 'value = "' + value.name + '" checked >' + '<label for="sub_' + index + '">' + value.name + ' </label> <br>';
+          });
+          container.html(checkboxes);
+        }
+      })
+    }
+
+    // delete student request . . .
+    function deleteStudent() {
+      $(".modal-content").LoadingOverlay("show");
+      $.ajax({
+        url: window.location.href + '/delete',
+        type: 'POST',
+        data: {
+          session: $("#sessionSelector").val(),
+          term: $("#termSelector").val(),
+          student: $("#vins").text().trim(),
+        },
+        success: function (data) {
+          $(".modal-content").LoadingOverlay("hide", true);
+          $('#deleteStudentVerification').modal('hide');
+          updateData();
+        },
+        complete: function (data) {
+          $(".modal-content").LoadingOverlay("hide", true);
+        },
+        error: function (error) {
+          alert("Something happened !")
+        }
+      })
+    }
+
+    // pass data to modal . . .
+    function passDeleteData(id) {
+      // var rowId = row.data('st-id');
+      $("#stname").html('<b id="vins">' + id + '</b>');
+      $('#dellbutt').click();
+    };
+
+    // click
+    $("#createStudent").on("click", function (e) {
+      $(".modal-content").LoadingOverlay("show");
+      $.ajax({
+        url: '/admin/<%= school_obj.name %>/getTermStatus/',
+        data: {
+          session: $("#sessionSelector").val(),
+          term: $("#termSelector").val(),
+        },
+        type: 'POST',
+        success: function (data) {
+          if (data.status === "true") {
+            $('#studentSubmit').click();
+          }
+          else {
+            if (data.av_nodes === "yes") {
+              $('#nbutt').click();
+            } else {
+              alert("You do not have available nodes to activate this term. Please purchase more nodes from the Dashboard or Orbital Node Official Website");
+              location.reload();
+            }
+          }
+        },
+        complete: function () {
+          $(".modal-content").LoadingOverlay("hide", true);
+        },
+        error: function (error) {
+          alert("Something happened !");
+          location.reload();
+        }
+      })
+    });
+
+    function activateTerm() {
+      $.ajax({
+        url: '/admin/<%= school_obj.name %>/activateTerm/',
+        data: {
+          session: $("#sessionSelector").val(),
+          term: $("#termSelector").val(),
+        },
+        type: 'POST',
+        success: function (data) {
+          $('#adstd').click()
+        }
+      })
+    }
+
+    $("#passwordForm").submit(function (event) {
+      event.preventDefault();
+      var form = $(this);
+      var action = form.attr('action');
+      var formData = form.serialize();
+      $(".modal-content").LoadingOverlay("show");
+      $.ajax({
+        type: "POST",
+        url: action,
+        data: formData,
+        success: function (data) {
+          if (data.success) {
+            $(".modal-body").html("<h5>Your password was changed successfully.");
+            setTimeout(function () {
+              window.location.href = "/admin";
+            }, 2000);
+          } else {
+            alert("The Old Password you entered is invalid! Try again.");
+            setTimeout(function () {
+              location.reload();
+            }, 2000);
+          }
+        },
+        complete: function () {
+          $(".modal-content").LoadingOverlay("hide", true);
+        },
+        error: function (error) {
+          alert('Oops! Somerhing happened. Pls try again later');
+        }
+      });
+    });
+
+  </script>
+
+</body>
+
+</html>

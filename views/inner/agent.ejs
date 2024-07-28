@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#3264f5" />
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#3264f5">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#3264f5">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#3264f5">
+  <title>Agent Registration</title>
+  <link rel="stylesheet" href="landing/reg.css">
+
+  <!-- Bootstrap core CSS -->
+  <link href="landing/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <script src="landing/vendor/jquery/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 id="title" class="text-center" style="color: white;">
+        Register as an Agent
+      </h1>
+    </header>
+
+    <p id="description" class="description text-center" style="color: white;">
+      For the Orbital Node Platforms
+    </p>
+
+    <form id="survey-form" method="POST" action="/agent">
+      <div class="form-group">
+        <label for="name" id="name-label" style="color: white;">Name</label>
+        <input type="text" name="name" id="name" class="form-control" placeholder="Enter your name" required />
+      </div>
+
+      <div class="form-group">
+        <label id="email-label" for="email" style="color: white;">Email</label>
+        <input type="email" name="email" id="email" class="form-control" placeholder="Enter your Email" required />
+      </div>
+
+      <div class="form-group">
+        <label id="email-label" for="email" style="color: white;">Phone Number</label>
+        <input type="text" name="phone" id="phone" class="form-control" placeholder="Enter your Phone Number"
+          required />
+      </div>
+
+      <div class="form-group">
+        <label id="email-label" for="email" style="color: white;">Bank Account Number</label>
+        <input type="text" name="account" id="account" class="form-control" placeholder="Enter your Bank Account Number"
+          required />
+      </div>
+
+      <div class="form-group">
+        <label id="email-label" for="email" style="color: white;">Bank Name</label>
+        <input type="text" name="bank" id="bank" class="form-control" placeholder="Enter the name of your Bank"
+          required />
+      </div>
+
+      <div class="form-group">
+        <label id="email-label" for="email" style="color: white;">About You<span class="clue"> (brief) </span></label>
+        <input type="text" name="about" id="about" class="form-control" placeholder="Brief info about yourself"
+          required />
+      </div>
+
+      <div class="form-group">
+        <label id="email-label" for="email" style="color: white;">State</label>
+        <input type="text" name="state" id="state" class="form-control" placeholder="Enter your State of origin"
+          required />
+      </div>
+
+      <div class="form-group">
+        <button type="submit" id="submit" style="display: none;">submit</button>
+      </div>
+    </form>
+    <button type="button" onclick="check()" class="submit-button">
+      Register
+    </button>
+
+    <button id="mod" type="button" style="display: none;" data-toggle="modal" data-target="#termsModal">modal
+      open</button>
+    <div style="margin-top: 30px;"></div>
+  </div>
+
+  <!-- Terms and Conditions Modal -->
+  <div class="modal fade" id="termsModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Orbital Node Agents Terms and Conditions</h5>
+          <button class="close" data-dismiss="modal"
+            style="border: none; background-color: transparent;">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>1. All agents must duely sign-up on the agents section, providing all the basic information required of
+            them.
+            <br><br>
+            2. Agents commision is NGN7,000 paid once and for
+            all at the instance the school referred pays it's full subscription.
+            <br><br>
+            3. Agents should note that they will receive their NGN7,000 commission only
+            after the company has received the NGN21,000 subscription from institutions for a session.
+            <br><br>
+            4. Institutions referred by an agent that may spread their subscriptions by terms will result the agent
+            getting their commission by terms as well, same way as the payment is received by the company. Agents should
+            therefore always advice their client schools to complete their subscription for the session so they will get
+            their NGN7,000 instantly.
+            <br><br>
+            5. An agent may wish to refer as many institutions as possible across the nation.
+            <br><br>
+            6. Agents must receive the basic orientation on the platform and it's operations and deliver same
+            information to their client schools.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Decline</button>
+          <button type="button" class="btn btn-primary" id="verify" onclick="$('#submit').click()">Accept</button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <!-- Terms and Conditions Modal Ends -->
+
+  <script>
+
+    function check() {
+      var isValid = true;
+      $("input").each(function () {
+        if ($(this).val() === "") {
+          isValid = false;
+          return false;
+        }
+      });
+
+      if (!isValid) {
+        $('#submit').click()
+      }
+      else {
+        $('#mod').click()
+      }
+    }
+
+    document.getElementById('survey-form').reset()
+  </script>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="landing/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

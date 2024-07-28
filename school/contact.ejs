@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Ecology Theme">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#3264f5" />
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#3264f5">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#3264f5">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#3264f5">
+    
+    <title>
+        <%= school_obj.name %>
+    </title>
+    <link rel="shortcut icon" href="<%= school_obj.logo %>" type="image/x-icon">
+    <!-- Goole Font -->
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../school/css/assets/bootstrap.min.css">
+    <!-- Font awsome CSS -->
+    <link rel="stylesheet" href="../../school/css/assets/font-awesome.min.css">
+    <link rel="stylesheet" href="../../school/css/assets/flaticon.css">
+    <link rel="stylesheet" href="../../school/css/assets/magnific-popup.css">
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="../../school/css/assets/owl.carousel.css">
+    <link rel="stylesheet" href="../../school/css/assets/owl.theme.css">
+    <link rel="stylesheet" href="../../school/css/assets/animate.css">
+    <!-- Slick Carousel -->
+    <link rel="stylesheet" href="../../school/css/assets/slick.css">
+    <!-- Mean Menu-->
+    <link rel="stylesheet" href="../../school/css/assets/meanmenu.css">
+    <!-- main style-->
+    <link rel="stylesheet" href="../../school/css/style.css">
+    <link rel="stylesheet" href="../../school/css/responsive.css">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8866208116280869"
+    crossorigin="anonymous"></script>
+
+    <script src="../../school/js/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <header class="header_inner become_a_teacher">
+        <!-- Preloader -->
+        <div id="preloader">
+            <div id="status">&nbsp;</div>
+        </div>
+        <div class="header_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-lg-12">
+                        <div class="info_wrapper">
+                            <div class="contact_info">
+                                <ul class="list-unstyled">
+                                    <li><i class="flaticon-phone-receiver"></i>
+                                        <%= school_obj.phone %>
+                                    </li>
+                                    <li><i class="flaticon-mail-black-envelope-symbol"></i>
+                                        <%= school_obj.email %>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="login_info">
+                                <ul class="list-unstyled">
+                                    <li class="nav-item">
+                                        <p style="color:#fff;margin-top: 15px;font-size: 18px;">
+                                            <%=school_obj.name%>
+                                        </p>
+                                    </li>
+                                </ul>
+                                <!-- <a href="/" title="" class="apply_btn">Register</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="edu_nav">
+            <div class="container">
+                <nav class="navbar navbar-expand-md navbar-light bg-faded">
+                    <a class="navbar-brand" href="home"><img style="max-height: 45px;" src="<%=school_obj.logo%>"
+                            alt="logo"></a>
+                    <div class="collapse navbar-collapse main-menu" id="navbarSupportedContent">
+                        <ul class="navbar-nav nav lavalamp ml-auto menu">
+                            <li class="nav-item"><a href="home" class="nav-link">Home</a></li>
+                            <li class="nav-item"><a href="admissions" class="nav-link">Admissions</a></li>
+                            <li class="nav-item"><a href="portal" class="nav-link">Portal</a></li>
+                            <li class="nav-item"><a href="fees" class="nav-link">Fees</a></li>
+                            <li class="nav-item"><a href="follow" class="nav-link active">Follow Up</a></li>
+                            <li class="nav-item"><a href="about" class="nav-link">About</a></li>
+                        </ul>
+                    </div>
+                    <div class="mr-auto search_area ">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item"><i class="search_btn flaticon-magnifier"></i>
+                                <div id="search">
+                                    <button type="button" class="close">×</button>
+                                    <form>
+                                        <input type="search" value="" placeholder="Search here...." required />
+                                    </form>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav><!-- END NAVBAR -->
+            </div>
+        </div>
+
+        <div class="intro_wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-8 col-lg-8">
+                        <div class="intro_text">
+                            <h1>Follow Up Platform</h1>
+                            <div class="pages_links">
+                                <a href="#" title="">Home</a>
+                                <a href="#" title="" class="active">Follow Up</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header> <!-- End Header -->
+
+
+    <section class="contact_info_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                    <div class="contact_info">
+                        <h3 class="title">Contact Details</h3>
+                        <p>Communicate with the school authorities regarding issues about your child. Make complaints,
+                            recommendations and any form of feedback and they will be duely attended to.</p>
+                        <div class="event_location_info">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h4 class="info_title">Address : </h4>
+                                    <ul class="list-unstyled">
+                                        <li>Benue State Makurdi </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h4 class="info_title">Phone Numbers :</h4>
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <%= school_obj.phone %>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h4 class="info_title">Our E-mails :</h4>
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <%= school_obj.email %>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <img src="../../images/banner/map_shape.png" alt="" class="contact__info_shpae">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                    <div class="contact_form_wrapper">
+                        <h3 class="title">Get In Touch</h3>
+                        <div class="leave_comment">
+                            <div class="contact_form">
+                                <form id="feedbackform">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 col-md-6 form-group">
+                                            <input type="text" class="form-control" name="name" id="name"
+                                                placeholder="Your Name">
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-6 form-group">
+                                            <input type="phone" class="form-control" name="number" id="number"
+                                                placeholder="Your Phone number">
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-12 form-group">
+                                            <textarea class="form-control" name="message" id="message"
+                                                placeholder="Type in your message here. Make sure your child's Full name and class is included in your message."></textarea>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-12 submit-btn">
+                                            <button type="submit" class="text-center">Send Message</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> <!-- Contact Info Wrappper-->
+
+    <script>
+        $(document).ready(function () {
+            $('#feedbackform').on('submit', function (evt) {
+                evt.preventDefault();
+                var form = $(this);
+                var action = $(this).attr('action');
+                var $container = $(this).closest('.contact_form');
+                $.ajax({
+                    url: action,
+                    type: 'POST',
+                    data: convertFormToJSON(form),
+                    success: function (data) {
+                        if (data.success) {
+                            $container.html('<h2>Your message was sent successfully. We will address your issue and get back to you shortly through the phone number you dropped. Thank you.</h2>');
+                            setTimeout(function () { location.reload(); }, 5000);
+
+                        } else {
+                            alert("Something went wrong");
+                        }
+                    },
+                    error: function (error) {
+                        $container.html('There was a problem.');
+                    }
+                });
+            });
+        });
+
+        function convertFormToJSON(form) {
+            const array = $(form).serializeArray(); // Encodes the set of form elements as an array of names and values.
+            const json = {};
+            $.each(array, function () {
+                json[this.name] = this.value || "";
+            });
+            return json;
+        }
+    </script>
+
+    <!-- Footer -->
+    <footer class="footer_2">
+        <div class="container">
+            <div class="footer_top">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="footer_single_col footer_intro">
+                            <img style="max-height: 55px;" src="<%=school_obj.logo%>" alt="logo">
+                            <p>
+                                <%= school_obj.about %>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-2">
+                        <div class="footer_single_col">
+                            <h3>Useful Links</h3>
+                            <ul class="location_info quick_inf0">
+                                <li><a href="home">Home</a></li>
+                                <li><a href="admissions">Admissions</a></li>
+                                <li><a href="portal">Portal</a></li>
+                                <li><a href="fees">Fees</a></li>
+                                <li><a href="about">About</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-2">
+                        <div class="footer_single_col information">
+                            <h3>information</h3>
+                            <ul class="quick_inf0">
+                                <li><a href="#">News</a></li>
+                                <li><a href="#">Events</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="footer_single_col contact">
+                            <h3>Contact Us</h3>
+                            <p>Feel free to contact us through the following channels</p>
+                            <div class="contact_info">
+                                <span>
+                                    <%= school_obj.phone %>
+                                </span>
+                                <span class="email">
+                                    <%= school_obj.email %>
+                                </span>
+                            </div>
+                            <ul class="social_items d-flex list-unstyled">
+                                <li><a href="#"><i class="fab fa-facebook-f fb-icon"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter twitt-icon"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin-in link-icon"></i></a></li>
+                                <li><a href="#"><i class="fab fa-instagram ins-icon"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-12">
+                        <div class="copyright">
+                            <p>Copyright &copy; 2023 Orbital Node
+                                - Powered by <a rel="nofollow" href="/">Orbital Node Technologies</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="shapes_bg">
+            <img src="../../images/shapes/testimonial_2_shpe_1.png" alt="" class="shape_3">
+            <img src="../../images/shapes/footer_2.png" alt="" class="shape_1">
+        </div>
+    </footer><!-- End Footer -->
+
+    <section id="scroll-top" class="scroll-top">
+        <h2 class="disabled">Scroll to top</h2>
+        <div class="to-top pos-rtive">
+            <a href="#"><i class="flaticon-right-arrow"></i></a>
+        </div>
+    </section>
+
+    <!--  JavaScript -->
+    <script src="../../school/js/popper.min.js"></script>
+    <script src="../../school/js/bootstrap.min.js"></script>
+    <script src="../../school/js/jquery.magnific-popup.min.js"></script>
+    <script src="../../school/js/owl.carousel.min.js"></script>
+    <script src="../../school/js/map-helper.js"></script>
+    <script src="../../school/js/slick.min.js"></script>
+    <script src="../../school/js/jquery.meanmenu.min.js"></script>
+    <script src="../../school/js/wow.min.js"></script>
+    <!-- Counter Script -->
+    <script src="../../school/js/waypoints.min.js"></script>
+    <script src="../../school/js/jquery.counterup.min.js"></script>
+    <script src="../../school/js/custom.js"></script>
+
+</body>
+
+
+</html>

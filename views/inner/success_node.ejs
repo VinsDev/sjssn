@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#3264f5" />
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#3264f5">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#3264f5">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#3264f5">
+
+    <title>Congratulations</title>
+    <link rel="stylesheet" href="landing/reg.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="item">
+            <h2 id="title" class="text-center">Registration success</h2>
+            <p id="description" class="description text-center">
+                Congratulations! <%= name %>, You have successfully purchased <%= quantity %> Node(s) for your school.
+                        It is equivalent
+                        to <%= quantity %> term(s) subscription of our products. You can Login to your Admin Panel and
+                            use it to activate Terms.
+            </p>
+        </div><br />
+        <a href="/">Back to site</a>
+        <style>
+            .container {
+                text-align: center;
+            }
+
+            .container a {
+                color: rgb(133, 255, 249);
+                text-decoration: none;
+            }
+        </style>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#3264f5" />
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#3264f5">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#3264f5">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#3264f5">
+
+  <title>Purchase Node</title>
+  <link rel="stylesheet" href="landing/reg.css">
+
+  <script src="../admin/assets/js/jquery-3.6.1.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 id="title" class="text-center">
+        Purchase Node
+      </h1>
+    </header>
+
+    <p id="description" class="description text-center">
+      Enter the email address used to register your school.
+    </p>
+    <form action="/subscribeNodePage" method="post">
+      <div class="form-group">
+        <label id="email-label" for="email">School Email</label>
+        <input type="email" name="email" id="email" class="form-control" placeholder="Enter your School Email"
+          required />
+      </div>
+
+      <div class="form-group" style="display: flex; justify-content: center;">
+        <button type="submit" id="regist_b" class="submit-button"
+          style="display: inline-block; min-width: 100px; width: auto;">
+          Proceed
+        </button>
+      </div>
+
+    </form>
+
+    <div class="text-center" style="margin-bottom: 30px;">
+      <a href="/" style="color: white;text-decoration: none;">Orbital Node Website</a>
+    </div>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="theme-color" content="#3264f5" />
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#3264f5">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#3264f5">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#3264f5">
+
+  <meta name="author" content="OrbitalNode">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+
+  <title>Orbital Node</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="landing/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="landing/assets/css/fontawesome.css">
+  <link rel="stylesheet" href="landing/assets/css/orbital-node.css">
+  <link rel="stylesheet" href="landing/assets/css/owl.css">
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8866208116280869"
+    crossorigin="anonymous"></script>
+
+
+  <script src="landing/vendor/jquery/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="preloader">
+    <div class="jumper">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- Header -->
+  <header class="">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="/">
+          <h2>Orbital <em>Node</em></h2>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+          aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services">Our Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+        <div class="functional-buttons">
+          <ul>
+            <li><a href="#reg">Register</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Content -->
+  <!-- Banner Starts Here -->
+  <div class="banner">
+    <div class="col-md-6 offset-md-3">
+      <div class="header-text caption">
+        <h2>Visit your school Website</h2>
+        <div id="search-section">
+          <form id="suggestion_form" name="gs" method="post" onsubmit="return validateForm()">
+            <div class="search-wrapper">
+              <input type="text" id="search-field" class="searchText" placeholder="Enter your School name"
+                autocomplete="on" onkeyup="searchSchool(this)" required />
+              <section id="searchResults"></section>
+              <div class="icon">
+                <input type="button" name="school" value="Go" class="gradient-button" placeholder="go"
+                  onclick="submitForm($('#search-field').val())" />
+              </div>
+
+            </div>
+          </form>
+        </div>
+        <div class="text-center">
+
+          <div class="wrapper">
+            <a class="reg" id="regnow" href="#reg">Sign Up</a>
+          </div>
+
+        </div>
+
+        <div class="text-center">
+          <div class="row">
+            <a href="agent" style="color: rgb(212, 227, 255); font-size: 16px; margin-left: auto;">Agent
+              Sign Up</a>
+
+            <p style="margin: 0px 20px ; color: rgb(173, 173, 173); font-size: 18px;">|</p>
+
+            <a id="regnow" href="/purchase-node"
+              style="color: rgb(224, 235, 255); font-size: 16px; margin-right: auto;">Recharge your
+              Nodes</a>
+
+          </div>
+        </div>
+        <p style="margin: 20px 0px ; color: rgb(173, 173, 173); font-size: 18px;"></p>
+        <div class="text-center">
+          <div class="row">
+            <img style="margin-left: auto; width: 30px; height: 30px; margin-right: 18px;"
+              src="../../admin/assets/img/logo.png" alt="">
+            <a id="regnow" target="_blank"
+              href="https://drive.google.com/file/d/1KB1YcWu0ORppCQ9kICH4HyOY5ye6KFUZ/view?usp=sharing"
+              style="color: rgb(253, 253, 253); font-size: 16px; margin-right: auto; font-weight: 600;">Download Our
+              Android App</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- Banner Ends Here -->
+
+
+  <!-- Services Starts Here -->
+  <div class="services-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-heading">
+            <span>School Management Services</span>
+            <h2>Services we provide</h2>
+            <p>Orbital Node provides you with modern cutting edge school management system technology which shall make
+              your school an icon in the society.</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="service-item">
+            <i class="fa fa-database"></i>
+            <h4>School Website</h4>
+            <p>Orbital Node provides a fully functional website for all registered schools where news and information
+              about the given schools shall be shared with the public. Also, parents shall communicate with the school
+              authoririties about the welfare of their kids.</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="service-item">
+            <i class="fa fa-database"></i>
+            <h4>Students Portal</h4>
+            <p>We also provide a student portal integrated in the school website where every information about a student
+              such as class attendance and behavioural activities shall be accessed, school fees shall be paid and
+              students
+              results shall also be checked.</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="service-item">
+            <i class="fa fa-database"></i>
+            <h4>Results Computation</h4>
+            <p>We provide an Automatic Results Computation System where the School shall input the student's scores and
+              our system shall Automatically compute the Results. Configurations of the individual school grading
+              systems shall be made via the school's Orbital Node Admin Panel. The Results shall be Prepared in a
+              Printable
+              format and placed in each Student's Portal in the School Website.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Services Ends Here -->
+
+
+  <!-- Pricing Starts Here -->
+  <div class="pricing-section" id="reg">
+    <div class="background-image-pricing">
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 offset-md-2">
+          <div class="section-heading">
+            <h2>Orbital Node Service Plans</h2>
+            <p>Orbital Node offers a uniform pricing system to all registered schools.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+          <div class="pricing-item">
+
+            <div class="price price-gradient">
+              <h3 style="color: white; font-weight: bold;">PRIMARY SCHOOLS</h3>
+              <!-- <h6>₦7,000</h6> -->
+              <!-- <span>per term</span> -->
+            </div>
+            <p>Suitable for all Schools</p>
+            <div class="dev"></div>
+            <ul>
+              <li><i class="fa fa-check"></i>School Website</li><br />
+              <li><i class="fa fa-check"></i>Managed Admissions Applications</li><br />
+              <li><i class="fa fa-check"></i>Managed Fees Payments</li><br />
+              <li><i class="fa fa-check"></i>Electronic Students Attendance Registers</li><br />
+              <li><i class="fa fa-check"></i>Students Portal</li><br />
+              <li><i class="fa fa-check"></i>Automatic Results Computation</li><br />
+              <li><i class="fa fa-check"></i>Admin Panel</li><br />
+            </ul>
+            <a href="#primaryActivationKey" data-toggle="modal" class="gradient-button">Register Primary</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+          <div class="pricing-item">
+
+            <div class="price price-gradient">
+              <h3 style="color: white; font-weight: bold;">SECONDARY SCHOOLS</h3>
+              <!-- <h6>₦7,000</h6> -->
+              <!-- <span>per term</span> -->
+            </div>
+            <p>Suitable for all Schools</p>
+            <div class="dev"></div>
+            <ul>
+              <li><i class="fa fa-check"></i>School Website</li><br />
+              <li><i class="fa fa-check"></i>Managed Admissions Applications</li><br />
+              <li><i class="fa fa-check"></i>Managed Fees Payments</li><br />
+              <li><i class="fa fa-check"></i>Electronic Students Attendance Registers</li><br />
+              <li><i class="fa fa-check"></i>Students Portal</li><br />
+              <li><i class="fa fa-check"></i>Automatic Results Computation</li><br />
+              <li><i class="fa fa-check"></i>Admin Panel</li><br />
+            </ul>
+            <a href="#secondaryActivationKey" data-toggle="modal" class="gradient-button">Register Secondary</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- Pricing Ends Here -->
+
+  <!-- Features Starts Here -->
+  <div class="features-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-heading">
+            <span>Best Quality for you</span>
+            <h2>Orbital Node Features</h2>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="feature-item">
+            <div class="icon">
+              <img src="assets/images/feature-01.png" alt="">
+            </div>
+            <h4>School Website</h4>
+            <p>This shall contain all the information about the school; a brief history of the school, pictorial review,
+              services available, location of the school and the contact information.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="feature-item">
+            <div class="icon">
+              <img src="assets/images/feature-01.png" alt="">
+            </div>
+            <h4>Student Follow Up Platform</h4>
+            <p>This section shall make provision for the school to update the students' everyday development, capturing
+              the cognitive, affective and the psychomotor domains;the students' attendance to class.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="feature-item">
+            <div class="icon">
+              <img src="assets/images/feature-01.png" alt="">
+            </div>
+            <h4>Fees Payment Platform</h4>
+            <p>The tuition fees and all other payments made to the school shall be performed through the app. This
+              section shall help keep track of the transactions done in the school for easy accounting.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="feature-item">
+            <div class="icon">
+              <img src="assets/images/feature-01.png" alt="">
+            </div>
+            <h4>Students Attendance E-Register</h4>
+            <p>The class attendance register shall be customized in an app that teachers shall use to mark the student's
+              everyday attendance to classes same way as in the manual register.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="feature-item">
+            <div class="icon">
+              <img src="assets/images/feature-01.png" alt="">
+            </div>
+            <h4>Automatic Results Computation</h4>
+            <p>The entire processes of results computation shall be carried out using an app that shall provide offline
+              services to compute and manage both terminal and annual student's results that shall hereafter, be updated
+              on the server to appear on the school's portal and in the student's follow-up platform.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="feature-item">
+            <div class="icon">
+              <img src="assets/images/feature-01.png" alt="">
+            </div>
+            <h4>Secured Database Information</h4>
+            <p>All aspects incorporated into the portal shall be usable and accessible only by the school. The school
+              shall set a login code to enable her manage the security of her portal.
+              The very work supplied to the school in form of a mobile application cannot be transferred to another
+              school for use.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Features Ends Here -->
+
+
+  <!-- Testimonials Starts Here -->
+  <div class="testimonials-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-heading">
+            <span>Our Vision</span>
+            <h2>What our executives are saying</h2>
+          </div>
+        </div>
+        <div class="col-md-10 offset-md-1">
+          <div class="owl-testimonials owl-carousel">
+            <div class="testimonial-item">
+              <div class="icon">
+                <i class="fa fa-quote-right"></i>
+              </div>
+              <p>"Our goal is to improve the world through technology."</p>
+              <h4>Jesse Jobs Aondoaseer Avaachia</h4>
+              <span>Founder and C.E.O</span>
+            </div>
+            <div class="testimonial-item">
+              <div class="icon">
+                <i class="fa fa-quote-right"></i>
+              </div>
+              <p>"Our target is ensuring a fully organized and efficient educational system through out the country by
+                providing quality services. Enjoy your visit to our website."</p>
+              <h4>Dominic Omaku Vincent</h4>
+              <span>Co-Founder and C.T.O</span>
+            </div>
+            <div class="testimonial-item">
+              <div class="icon">
+                <i class="fa fa-quote-right"></i>
+              </div>
+              <p>"Streamlining the service provision in the Nigerian and African Educational system to meet global best
+                practices by incorporating technology into the daily school administration and management"</p>
+              <h4>Unum Shater Elijah</h4>
+              <span>Co-Founder and Marketing Director</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Testimonials Ends Here -->
+
+
+  <!-- Footer Starts Here -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="footer-item">
+            <div class="footer-heading">
+              <h2>About Us</h2>
+            </div>
+            <p>Orbital Node is a technological enterprice that Provides a platform to solve real-time
+              educational
+              problems in lower institutions of learning ranging from School Websites, Portal, Fees Payment Platforms,
+              Electronic Attendance Registers, Results Computation Database and so much more. Our Mobile App is
+              available for download on google Play Store.</p>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="footer-item">
+            <div class="footer-heading">
+              <h2>Our Services</h2>
+            </div>
+            <ul class="footer-list">
+              <li><a href="services">Check it out</a></li>
+            </ul>
+          </div>
+        </div>
+
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="footer-item">
+            <div class="footer-heading">
+              <h2>Useful Links</h2>
+            </div>
+            <ul class="footer-list">
+              <li><a href="#reg">Register School</a></li>
+              <li><a href="agent">Agent Program</a></li>
+              <!-- <li><a href="#">Customer Support</a></li>
+              <li><a href="#">Latest News</a></li> -->
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="footer-item">
+            <div class="footer-heading">
+              <h2>More Information</h2>
+            </div>
+            <ul class="footer-list">
+              <li>Phone: +2349043081668</li>
+              <li>Email: orbitaltech32@gmail.com</li>
+              <li>Website: www.orbitalnodetechnologies.com</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="sub-footer">
+            <p>Copyright &copy; 2023 Orbital Node
+              - Powered by <a rel="nofollow" href="#">Orbital Node Technologies</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer Ends Here -->
+
+  <!-- Modal Primary -->
+  <div class="modal fade" id="primaryActivationKey" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Enter your school activation pin</h5>
+          <button class="close" data-dismiss="modal"
+            style="border: none; background-color: transparent;">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form class="row g-3 needs-validation class-form" method="post" action="/verify" id="priModForm">
+            <div class="col-12">
+              <label for="pin" class="form-label">PIN</label>
+              <input type="text" name="pin" class="form-control" id="pin" required>
+              <div class="invalid-feedback">Please ensure that you type in your school activation pin here</div>
+            </div>
+
+            <div class="col-12">
+              <button id="btnSubmit" type="submit" style="display: none;"></button>
+            </div>
+          </form>
+          <div style="margin-top: 25px;"></div>
+          <p>An Activation PIN is required to resgister a school.</p>
+          <p>To purchase an <b>Activation PIN,</b> Kindly contact us via any of the following Numbers either by Phone
+            Calls
+            or WhatsApp messages and our Representatives will attend to you. <br><b>08105634427, 08143425713.</b><br>You
+            can also
+            email your request for an activation pin for your school to <a href="mailto: orbitaltech32@gmail.com"
+              style="text-decoration: none;">orbitaltech32@gmail.com</a> </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
+          <button type="button" class="btn btn-primary" id="create">Verify</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- Modal Primary Ends Here -->
+
+  <!-- Modal Secondary-->
+  <div class="modal fade" id="secondaryActivationKey" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Enter your school activation pin</h5>
+          <button class="close" data-dismiss="modal"
+            style="border: none; background-color: transparent;">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form class="row g-3 needs-validation class-form" method="post" action="/verify" id="secModForm">
+            <div class="col-12">
+              <label for="pin" class="form-label">PIN</label>
+              <input type="text" name="pin" class="form-control" id="pin" required>
+              <div class="invalid-feedback">Please ensure that you type in your school activation pin here</div>
+            </div>
+
+            <div class="col-12">
+              <button id="btnSubmitSec" type="submit" style="display: none;"></button>
+            </div>
+          </form>
+          <div style="margin-top: 25px;"></div>
+          <p>An Activation PIN is required to resgister a school.</p>
+          <p>To purchase an <b>Activation PIN,</b> Kindly contact us via any of the following Numbers either by Phone
+            Calls
+            or WhatsApp messages and our Representatives will attend to you. <br><b>08105634427, 08143425713.</b><br>You
+            can also
+            email your request for an activation pin for your school to <a href="mailto: orbitaltech32@gmail.com"
+              style="text-decoration: none;">orbitaltech32@gmail.com</a> </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
+          <button type="button" class="btn btn-primary" id="verify">Verify</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- Modal Secondary Ends Here -->
+
+  <!-- Bootstrap core JavaScript -->
+
+  <script src="landing/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Additional Scripts -->
+  <script src="landing/assets/js/custom.js"></script>
+  <script src="landing/assets/js/owl.js"></script>
+  <script src="landing/assets/js/accordions.js"></script>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
+
+  <!-- Activation key Secondary-->
+  <script>
+    $("#verify").on("click", function (e) {
+      $('#btnSubmitSec').click()
+    });
+  </script>
+
+  <!-- Activation key Primary -->
+  <script>
+    $("#create").on("click", function (e) {
+      $('#btnSubmit').click()
+    });
+  </script>
+
+  <!-- School seach -->
+  <script>
+
+    var suggestion_hidden = true;
+    var school_names = [];
+
+    function searchSchool(e) {
+      const searchResults = $('#searchResults');
+
+      if (e.value.length === 0) {
+        searchResults.addClass("hide");
+        suggestion_hidden = true;
+      } else {
+        searchResults.removeClass("hide");
+        suggestion_hidden = false;
+      }
+
+      let match = e.value.match(/^[a-zA-Z .]*/);
+      let match2 = e.value.match(/\s*/);
+      if (match2[0] === e.value) {
+        searchResults.html('');
+        return;
+      }
+
+      // Get school from server ...
+      if (match[0] === e.value) {
+        searchResults.removeClass("hide");
+        suggestion_hidden = false;
+        $('#searchResults').LoadingOverlay("show", {
+          color: "#fff",
+        });
+        $.ajax({
+          url: '/getSchools',
+          type: 'POST',
+          contentType: 'application/json',
+          data: JSON.stringify({ payload: e.value }),
+          success: function (data) {
+            var payload = data.payload;
+            searchResults.html('');
+            if (payload < 1) {
+              searchResults.html('<p> Sorry school not found. Check your spelling</p>');
+              return;
+            }
+            payload.forEach((item, index) => {
+              school_names.push(item.school_info.name);
+              if (index === payload.length - 1) {
+                searchResults.append(`<p class="item" onclick="select(this)">${item.school_info.name}</p><p></p>`);
+              } else {
+                searchResults.append(`<p class="item" onclick="select(this)">${item.school_info.name}</p>`);
+              }
+            });
+          },
+          complete: function () {
+            $('#searchResults').LoadingOverlay("hide", true);
+          },
+        });
+        return;
+      }
+
+      searchResults.html('');
+    }
+
+
+    function select(element) {
+      let box = document.getElementById('search-field');
+      let result_wrapper = document.getElementById('searchResults');
+      let selectedItem = element.textContent;
+      box.value = selectedItem;
+      result_wrapper.classList.add("hide");
+      suggestion_hidden = true;
+      submitForm(element.textContent);
+    }
+
+    function submitForm(query) {
+      var myForm = document.getElementById("suggestion_form");
+
+      let match = query.match(/^[a-zA-Z.' ]*/);
+      if (query) {
+        if (match[0] === query) {
+          if (suggestion_hidden) {
+            var inputValue = query;
+            console.log(inputValue);
+            let url = "schools/" + inputValue + "/home";
+            myForm.action = url;
+            window.location = myForm.action;
+            myForm.submit();
+          } else {
+            alert("Please ensure that you click your school name from the names provided in the search suggestions.")
+          }
+        }
+        else {
+          alert("You need to type in a valid school name in the field provided!")
+        }
+      }
+      else {
+        // alert("You need to type in your school name in the field provided!")
+      }
+    }
+  </script>
+
+  <script language="text/Javascript">
+    cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+    function clearField(t) {                   //declaring the array outside of the
+      if (!cleared[t.id]) {                      // function makes it static and global
+        cleared[t.id] = 1;  // you could use true and false, but that's more typing
+        t.value = '';         // with more chance of typos
+        t.style.color = '#fff';
+      }
+    }
+
+
+
+  </script>
+
+
+  <!-- Ajax Form Data Handling -->
+  <script>
+    $(document).ready(function () {
+
+      $("#suggestion_form").submit(function (event) {
+        // Prevent the form from submitting by default
+        event.preventDefault();
+
+        // Get the value of the search field
+        var searchField = $("#search-field").val();
+
+        // Check if the search field is empty
+        if (!school_names.includes(searchField)) {
+          alert("Please select from the search suggestions provided on the field below.");
+          return;
+        }
+
+        // If the search field is not empty, submit the form
+        this.submit();
+      });
+
+
+      $('#priModForm').on('submit', function (evt) {
+        evt.preventDefault();
+        var form = $(this);
+        var action = $(this).attr('action');
+        var $container = $(this).closest('.modal-body');
+        $(".modal-content").LoadingOverlay("show");
+        $.ajax({
+          url: action,
+          type: 'POST',
+          data: convertFormToJSON(form),
+          success: function (data) {
+            if (data.feedback === "ok") {
+              $container.html('<h3>Activation PIN Verified. Thank you</h3> <p>Redirecting please wait. . .</p>');
+              window.location = "https://orbital-node-platform.onrender.com/register-pri";
+              $('<button class="btn btn-primary" style="margin: 40px" onclick="location.reload()">Refresh</button>').insertAfter($container);
+
+            } else if (data.feedback === "used") {
+              $container.html('<h3>The Pin you entered has already been used</h3>');
+              $('<button class="btn btn-primary" style="margin: 20px" onclick="location.reload()">Try Again</button>').insertAfter($container);
+            }
+            else {
+              $container.html('<h3>Invalid PIN.</h3>');
+              $('<button class="btn btn-primary" style="margin: 20px" onclick="location.reload()">Try Again</button>').insertAfter($container);
+            }
+          },
+          complete: function () {
+            $(".modal-content").LoadingOverlay("hide", true);
+          },
+          error: function (error) {
+            $container.html('There was a problem.');
+          }
+        });
+      });
+      $('#secModForm').on('submit', function (evt) {
+        evt.preventDefault();
+        var form = $(this);
+        var action = $(this).attr('action');
+        var $container = $(this).closest('.modal-body');
+        $(".modal-content").LoadingOverlay("show");
+        $.ajax({
+          url: action,
+          type: 'POST',
+          data: convertFormToJSON(form),
+          success: function (data) {
+            if (data.feedback === "ok") {
+              $container.html('<h3>Activation PIN Verified. Thank you</h3> <p>Redirecting please wait. . .</p>');
+              window.location = "https://orbital-node-platform.onrender.com/register-sec";
+
+            } else if (data.feedback === "used") {
+              $container.html('<h3>The Pin you entered has already been used</h3>');
+              $('<button class="btn btn-primary" style="margin: 20px" onclick="location.reload()">Try Again</button>').insertAfter($container);
+            }
+            else {
+              $container.html('<h3>Invalid PIN.</h3>');
+              $('<button class="btn btn-primary" style="margin: 20px" onclick="location.reload()">Try Again</button>').insertAfter($container);
+            }
+          },
+          complete: function () {
+            $(".modal-content").LoadingOverlay("hide", true);
+          },
+          error: function (error) {
+            $container.html('There was a problem.');
+            $('<button class="btn btn-primary" style="margin: 20px" onclick="location.reload()">Try Again</button>').insertAfter($container);
+          }
+        });
+      });
+    });
+
+    function convertFormToJSON(form) {
+      const array = $(form).serializeArray();
+      const json = {};
+      $.each(array, function () {
+        json[this.name] = this.value || "";
+      });
+      return json;
+    }
+  </script>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
+
+</body>
+
+</html>

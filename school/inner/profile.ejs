@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Ecology Theme">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#3264f5" />
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#3264f5">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#3264f5">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#3264f5">
+
+    <title>
+        <%= school_obj.name %>
+    </title>
+    <link rel="shortcut icon" href="<%= school_obj.logo %>" type="image/x-icon">
+    <!-- Goole Font -->
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../../../school/css/assets/bootstrap.min.css">
+    <!-- Font awsome CSS -->
+    <link rel="stylesheet" href="../../../../school/css/assets/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../../school/css/assets/flaticon.css">
+    <link rel="stylesheet" href="../../../../school/css/assets/magnific-popup.css">
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="../../../../school/css/assets/owl.carousel.css">
+    <link rel="stylesheet" href="../../../../school/css/assets/owl.theme.css">
+    <link rel="stylesheet" href="../../../../school/css/assets/animate.css">
+    <!-- Slick Carousel -->
+    <link rel="stylesheet" href="../../../../school/css/assets/slick.css">
+
+    <!-- Mean Menu-->
+    <link rel="stylesheet" href="../../../../school/css/assets/meanmenu.css">
+    <!-- main style-->
+    <link rel="stylesheet" href="../../../../school/css/style.css">
+    <link rel="stylesheet" href="../../../../school/css/responsive.css">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8866208116280869"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <header class="header_inner contact_page">
+        <!-- Preloader -->
+        <div id="preloader">
+            <div id="status">&nbsp;</div>
+        </div>
+        <div class="header_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-lg-12">
+                        <div class="info_wrapper">
+                            <div class="contact_info">
+                                <ul class="list-unstyled">
+                                    <li><i class="flaticon-phone-receiver"></i>
+                                        <%= school_obj.phone %>
+                                    </li>
+                                    <li><i class="flaticon-mail-black-envelope-symbol"></i>
+                                        <%= school_obj.email %>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="login_info">
+                                <ul class="list-unstyled">
+                                    <li class="nav-item">
+                                        <p style="color:#fff;margin-top: 15px;font-size: 18px;">
+                                            <%=school_obj.name%>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </header> <!-- End Header -->
+
+
+    <div class="page-content page-container" id="page-content">
+        <div class="padding">
+            <div class="row container d-flex justify-content-center">
+                <div class="col-sm-12 offset-md-2">
+                    <div class="card user-card-full">
+                        <div class="row m-l-0 m-r-0">
+                            <div class="col-sm-4 bg-c-lite-green user-profile">
+                                <div class="card-block text-center text-white">
+                                    <div class="m-b-25">
+                                        <!-- Person Icon -->
+                                        <div class=""></div>
+                                    </div>
+                                    <h3 class="f-w-600" style="margin-bottom: 20px; color: rgb(130, 230, 255)">Student
+                                        Portal
+                                    </h3>
+                                    <h4 class="f-w-600" style="color: white; font-style: bold;">
+                                        <%= student_info.name %>
+                                    </h4>
+
+                                    <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="card-block">
+                                    <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Full Name</p>
+                                            <h6 class="text-muted f-w-400">
+                                                <%= student_info.name %>
+                                            </h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Date of Birth</p>
+                                            <h6 class="text-muted f-w-400">
+                                                <%= student_info.dob %>
+                                            </h6>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top: 20px;">
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Gender</p>
+                                            <h6 class="text-muted f-w-400">
+                                                <%= student_info.gender %>
+                                            </h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Class</p>
+                                            <h6 class="text-muted f-w-400">
+                                                <%= student_info.class %>
+                                            </h6>
+                                        </div>
+                                    </div>
+                                    <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600" style="margin-top: 30px;">
+                                        Results</h6>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">
+                                                <%= c_term %> Term Result
+                                            </p>
+                                            <h6 class="text-muted f-w-400"><a id="termres"
+                                                    href="/schools/<%= school_obj.name %>/portal/<%= student_info.class %>/<%= student_info.name %>/preview">View
+                                                    Results</a></h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Annual Result</p>
+                                            <h6 class="text-muted f-w-400">Not Ready Yet</h6>
+                                        </div>
+                                    </div>
+                                    <ul class="social-link list-unstyled m-t-40 m-b-10">
+                                        <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title=""
+                                                data-original-title="facebook" data-abc="true"><i
+                                                    class="mdi mdi-facebook feather icon-facebook facebook"
+                                                    aria-hidden="true"></i></a></li>
+                                        <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title=""
+                                                data-original-title="twitter" data-abc="true"><i
+                                                    class="mdi mdi-twitter feather icon-twitter twitter"
+                                                    aria-hidden="true"></i></a></li>
+                                        <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title=""
+                                                data-original-title="instagram" data-abc="true"><i
+                                                    class="mdi mdi-instagram feather icon-instagram instagram"
+                                                    aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <a href="/schools/<%= school_obj.name %>/portal"><button class="btn btn-primary"
+                style="margin-bottom: 40px;">Back</button></a>
+    </div>
+
+    <style>
+        body {
+            background-color: #f9f9fa
+        }
+
+        .padding {
+            padding: 4% !important
+        }
+
+        .user-card-full {
+            overflow: hidden;
+        }
+
+        .card {
+            border-radius: 5px;
+            -webkit-box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+            box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+            border: none;
+        }
+
+        .m-r-0 {
+            margin-right: 0px;
+        }
+
+        .m-l-0 {
+            margin-left: 0px;
+        }
+
+        .user-card-full .user-profile {
+            border-radius: 5px 0 0 5px;
+        }
+
+        .bg-c-lite-green {
+            background: -webkit-gradient(linear, left top, right top, from(#637df2), to(#b85aee));
+            background: linear-gradient(to right, #755aee, #6d63f2);
+        }
+
+
+        .card-block {
+            padding: 1.25rem;
+        }
+
+        .m-b-25 {
+            margin-bottom: 25px;
+        }
+
+        .img-radius {
+            border-radius: 5px;
+        }
+
+
+
+        h6 {
+            font-size: 14px;
+        }
+
+        .card .card-block p {
+            line-height: 25px;
+        }
+
+        @media only screen and (min-width: 1400px) {
+            p {
+                font-size: 14px;
+            }
+        }
+
+        .card-block {
+            padding: 1.25rem;
+        }
+
+        .b-b-default {
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .m-b-20 {
+            margin-bottom: 20px;
+        }
+
+        .p-b-5 {
+            padding-bottom: 5px !important;
+        }
+
+        .card .card-block p {
+            line-height: 25px;
+        }
+
+        .m-b-10 {
+            margin-bottom: 10px;
+        }
+
+        .text-muted {
+            color: #919aa3 !important;
+        }
+
+        .b-b-default {
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .f-w-600 {
+            font-weight: 600;
+        }
+
+        .m-b-20 {
+            margin-bottom: 20px;
+        }
+
+        .m-t-40 {
+            margin-top: 20px;
+        }
+
+        .p-b-5 {
+            padding-bottom: 5px !important;
+        }
+
+        .m-b-10 {
+            margin-bottom: 10px;
+        }
+
+        .m-t-40 {
+            margin-top: 20px;
+        }
+
+        .user-card-full .social-link li {
+            display: inline-block;
+        }
+
+        .user-card-full .social-link li a {
+            font-size: 20px;
+            margin: 0 10px 0 0;
+            -webkit-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+
+    <!-- Footer -->
+    <footer class="footer_2">
+        <div class="container">
+            <div class="footer_top">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="footer_single_col footer_intro">
+                            <img style="max-height: 55px;" src="<%=school_obj.logo%>" alt="logo">
+                            <p>
+                                <%= school_obj.about %>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-2">
+                        <div class="footer_single_col information">
+                            <h3>information</h3>
+                            <ul class="quick_inf0">
+                                <li><a href="#">News</a></li>
+                                <li><a href="#">Events</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="footer_single_col contact">
+                            <h3>Contact Us</h3>
+                            <p>Feel free to contact us through the following channels</p>
+                            <div class="contact_info">
+                                <span>
+                                    <%= school_obj.phone %>
+                                </span>
+                                <span class="email">
+                                    <%= school_obj.email %>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-12">
+                        <div class="copyright">
+                            <p>Copyright &copy; 2023 Orbital Node
+                                - Powered by <a rel="nofollow" href="/">Orbital Node Technologies</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="shapes_bg">
+            <img src="../../../../images/shapes/testimonial_2_shpe_1.png" alt="" class="shape_3">
+            <img src="../../../../images/shapes/footer_2.png" alt="" class="shape_1">
+        </div>
+    </footer><!-- End Footer -->
+
+    <section id="scroll-top" class="scroll-top">
+        <h2 class="disabled">Scroll to top</h2>
+        <div class="to-top pos-rtive">
+            <a href="#"><i class="flaticon-right-arrow"></i></a>
+        </div>
+    </section>
+
+    <!--  JavaScript -->
+    <script src="../../../../school/js/jquery-3.2.1.min.js"></script>
+    <script src="../../../../school/js/popper.min.js"></script>
+    <script src="../../../../school/js/bootstrap.min.js"></script>
+    <script src="../../../../school/js/jquery.magnific-popup.min.js"></script>
+    <script src="../../../../school/js/owl.carousel.min.js"></script>
+    <script src="../../../../school/js/map-helper.js"></script>
+    <script src="../../../../school/js/slick.min.js"></script>
+    <script src="../../../../school/js/jquery.meanmenu.min.js"></script>
+    <script src="../../../../school/js/wow.min.js"></script>
+    <!-- Counter Script -->
+    <script src="../../../../school/js/waypoints.min.js"></script>
+    <script src="../../../../school/js/jquery.counterup.min.js"></script>
+    <script src="../../../../school/js/custom.js"></script>
+
+</body>
+
+</html>

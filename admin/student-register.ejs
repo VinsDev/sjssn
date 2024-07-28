@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Students / E-Register</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../../admin/assets/img/logo.png" rel="icon">
+  <link href="../../admin/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../../admin/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../admin/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../../admin/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+
+
+  <!-- Template Main CSS File -->
+  <link href="../../admin/assets/css/style.css" rel="stylesheet">
+
+  <!-- Jquery -->
+  <script src="../../admin/assets/js/jquery-3.6.1.js"></script>
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="/admin/<%= school_obj.name %>/dashboard" class="logo d-flex align-items-center">
+        <img src="../../admin/assets/img/logo.png" alt="">
+        <span class="d-none d-lg-block">Orbital Admin</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+
+
+    <div class="d-flex align-items-center justify-content-between tex">
+      <span class="d-none d-lg-block">
+        <div class="pad">Manage the contents of your school Website and Database</div>
+      </span>
+    </div>
+
+
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item dropdown pe-3">
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="<%= school_obj.logo %>" alt="Profile">
+            <span class="d-none d-md-block dropdown-toggle ps-2">
+              <%= school_obj.name %>
+            </span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6>
+                <%= school_obj.name %>
+              </h6>
+              <span>Admin Account</span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="#changePasswordModal" data-bs-toggle="modal">
+                <i class="bi bi-grid"></i>
+                <span>Change Login Password</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="/admin">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Sign Out</span>
+              </a>
+            </li>
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/admin/<%=school_obj.name%>/dashboard">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-cloud"></i><span>Website</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="school-info">
+              <i class="bi bi-circle"></i><span>School Information</span>
+            </a>
+          </li>
+          <li>
+            <a href="upcoming-news">
+              <i class="bi bi-circle"></i><span>Upcoming news and Events</span>
+            </a>
+          </li>
+          <li>
+            <a href="fees-info">
+              <i class="bi bi-circle"></i><span>Fees Payment Details</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Website Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link " data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-people"></i><span>Students</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="student-info">
+              <i class="bi bi-circle"></i><span>Students Information</span>
+            </a>
+          </li>
+          <li>
+            <a href="student-fees">
+              <i class="bi bi-circle"></i><span>Students Fees Status</span>
+            </a>
+          </li>
+          <a href="student-register" class="active">
+            <i class="bi bi-circle"></i><span>E-Register</span>
+          </a>
+      </li>
+    </ul>
+    </li><!-- End Students Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-layout-text-window-reverse"></i><span>Results</span><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <li>
+          <a href="blue-print">
+            <i class="bi bi-circle"></i><span>Assessments Structure</span>
+          </a>
+        </li>
+        <li>
+          <a href="continous-assessments">
+            <i class="bi bi-circle"></i><span>Continous Assessment</span>
+          </a>
+        </li>
+        <li>
+          <a href="student-results">
+            <i class="bi bi-circle"></i><span>Students Results Preview</span>
+          </a>
+        </li>
+      </ul>
+    </li><!-- End Results Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-person-check"></i><span>Parents</span><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <li>
+          <a href="parents">
+            <i class="bi bi-circle"></i><span>Feedbacks</span>
+          </a>
+        </li>
+      </ul>
+    </li><!-- End Parents Nav -->
+
+    <li class="nav-heading">References</li>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="sessions">
+        <i class="bi bi-collection"></i>
+        <span>Sessions</span>
+      </a>
+    </li><!-- End Sessions Page Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="classes">
+        <i class="bi bi-menu-button-wide"></i>
+        <span>Classes</span>
+      </a>
+    </li><!-- End Classes Page Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="subjects">
+        <i class="bi bi-book"></i>
+        <span>Subjects</span>
+      </a>
+    </li><!-- End Subjects Page Nav -->
+
+    </ul>
+
+  </aside><!-- End Sidebar-->
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>E-Register</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Students</li>
+          <li class="breadcrumb-item active">E-Register</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-md-12 offset-md-0">
+
+          <% if(session==="null" ) { %>
+            <div class="text-center">
+              <p>Atleast one Academic session and atleast one class needs to be added to your school's admin panel
+                before you can access
+                the e-register section</p>
+              <i>You can create a session from the <b>Session</b> section on the References in the navigation drawer
+                at the
+                left portion of your screen.</i>
+            </div>
+            <% } else { %>
+              <h5 class="card-title">Current Term: <%= current_term %>
+              </h5>
+              <% if(start_date==="null" || stop_date==="null" ) { %>
+                <form action="/admin/<%= school_obj.name %>/updateTermDates" method="post" id="registerForm">
+                  <div class="row">
+                    <div class="col-xxl-4">
+                      <label for="yourEmail" class="form-label">Starting Date</label>
+                      <input type="date" name="start_date" class="form-control" id="start_date" required>
+                      <div class="invalid-feedback">Please enter Starting Date!</div>
+                    </div>
+
+                    <div class="col-xxl-4">
+                      <label for="yourEmail" class="form-label">Finishing Date</label>
+                      <input type="date" name="stop_date" class="form-control" id="stop_date" required>
+                      <div class="invalid-feedback">Please enter Finishing Date!</div>
+                    </div>
+                  </div>
+                  <div class="text-center" style="margin-bottom: 20px;">
+                    <button class="btn btn-primary" type="submit">Save</button>
+                  </div>
+                </form>
+
+                <% } else { %>
+                  <!-- Students Card -->
+                  <div class="col-xxl-12 col-md-12">
+                    <div class="card info-card sales-card">
+                      <div class="card-body">
+                        <h5 class="card-title">All Students in School <span>| Total Number</span></h5>
+
+                        <div class="d-flex align-items-center">
+                          <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-people"></i>
+                          </div>
+                          <div class="ps-3">
+                            <h6>
+                              <%= students %>
+                            </h6>
+
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div><!-- End Students Card -->
+
+                  <div class="col-xxl-12 col-md-12">
+                    <div class="card info-card revenue-card">
+                      <div class="card-body">
+                        <h5 class="card-title">Today's Date<span></span></h5>
+
+                        <div class="d-flex align-items-center">
+                          <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-calendar"></i>
+                          </div>
+                          <div class="ps-3">
+                            <h6>
+                              <%= today %>
+                            </h6>
+
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xxl-6 col-md-6">
+                      <div class="card info-card sales-card">
+                        <div class="card-body">
+                          <h5 class="card-title">Present Today <span>| Morning</span></h5>
+
+                          <div class="d-flex align-items-center">
+                            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                              <i class="bi bi-people"></i>
+                            </div>
+                            <div class="ps-3">
+                              <h6>
+                                -
+                              </h6>
+
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                    <div class="col-xxl-6 col-md-6">
+                      <div class="card info-card sales-card">
+                        <div class="card-body">
+                          <h5 class="card-title">Present Today <span>| Afternoon</span></h5>
+
+                          <div class="d-flex align-items-center">
+                            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                              <i class="bi bi-people"></i>
+                            </div>
+                            <div class="ps-3">
+                              <h6>
+                                -
+                              </h6>
+
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-xxl-6 col-md-6">
+                      <div class="card info-card sales-card">
+                        <div class="card-body">
+                          <h5 class="card-title">Absent Today <span>| Generally</span></h5>
+
+                          <div class="d-flex align-items-center">
+                            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                              <i class="bi bi-people"></i>
+                            </div>
+                            <div class="ps-3">
+                              <h6>
+                                -
+                              </h6>
+
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                    <div class="col-xxl-6 col-md-6">
+                      <div class="card info-card sales-card">
+                        <div class="card-body">
+                          <h5 class="card-title">Sick Today <span>| Generally</span></h5>
+
+                          <div class="d-flex align-items-center">
+                            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                              <i class="bi bi-people"></i>
+                            </div>
+                            <div class="ps-3">
+                              <h6>
+                                -
+                              </h6>
+
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="text-center">
+                    <!-- <i>For a more detailed breakdown of Students Attendance, please refer to the Orbital Node Teachers
+                      App.</i> -->
+                  </div>
+
+                  <% } %>
+                    <% } %>
+
+
+        </div>
+    </section>
+    <!-- Change Password Modal -->
+    <div class="modal fade" id="changePasswordModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Change Password</h5>
+            <button class="close" data-bs-dismiss="modal"
+              style="border: none; background-color: transparent;">&times;</button>
+          </div>
+          <div class="modal-body">
+            <form class="row g-3 needs-validation" method="post" action="/admin/<%= school_obj.name %>/changePassword"
+              id="passwordForm">
+              <div class="col-12">
+                <label for="yourName" class="form-label">Old Password</label>
+                <input type="text" name="oldPass" class="form-control" id="old-psw" required>
+                <div class="invalid-feedback">Please, enter your old password</div>
+              </div>
+              <div class="col-12">
+                <label for="yourName" class="form-label">New Password</label>
+                <input type="text" name="newPass" class="form-control" id="new-psw" required>
+                <div class="invalid-feedback">Please, the new password</div>
+              </div>
+              <button type="submit" id="btnSubmit" style="display: none;"></button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="create" onclick="$('#btnSubmit').click()">Change</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Powered by <strong><span>Orbital Node 2023</span></strong>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+
+  <!-- Vendor JS Files -->
+  <script src="../../admin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../admin/assets/vendor/tinymce/tinymce.min.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../../admin/assets/js/main.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $("#passwordForm").submit(function (event) {
+        event.preventDefault();
+        var form = $(this);
+        var action = form.attr('action');
+        var formData = form.serialize();
+        $.ajax({
+          type: "POST",
+          url: action,
+          data: formData,
+          success: function (data) {
+            if (data.success) {
+              $(".modal-body").html("<h5>Your password was changes successfully.");
+              setTimeout(function () {
+                window.location.href = "/admin";
+              }, 2000);
+            } else {
+              alert("The Old Password you entered is invalid! Try again.");
+              setTimeout(function () {
+                location.reload();
+              }, 2000);
+            }
+          },
+          error: function (error) {
+            alert('Oops! Somerhing happened. Pls try again later');
+          }
+        });
+      });
+
+      $("#registerForm").submit(function (event) {
+        event.preventDefault();
+        var form = $(this);
+        var action = form.attr('action');
+        var formData = form.serialize();
+        $.LoadingOverlay("show");
+        $.ajax({
+          type: "POST",
+          url: action,
+          data: formData,
+          success: function (data) {
+            location.reload();
+          },
+          complete: function () {
+            $.LoadingOverlay("hide", true);
+          },
+          error: function (error) {
+            alert('Something went wrong. Please try again.');
+          }
+        });
+      });
+
+    })
+
+  </script>
+
+</body>
+
+</html>

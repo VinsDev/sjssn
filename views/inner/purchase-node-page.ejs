@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#3264f5" />
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#3264f5">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#3264f5">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#3264f5">
+
+  <title>Purchase Node</title>
+  <link rel="stylesheet" href="landing/reg.css">
+
+  <script src="../admin/assets/js/jquery-3.6.1.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 id="title" class="text-center">
+        Purchase Node
+      </h1>
+    </header>
+    <div class="text-center">
+      <h2 style="margin-bottom: 10px
+      ;">
+        <%=data.school_info.name%>
+      </h2>
+      <img src="<%=data.school_info.logo%>" alt="School Logo" width="100" height="100">
+    </div>
+
+    <div id="success-message" style="display: none;">
+      <p>Congratulations! Your Node has been recharged successfully.</p>
+      <button id="go-home" class="submit-button"
+        style="display: inline-block; min-width: 100px; width: auto; border-radius: 5px;" onclick="home()">Go to Home</button>
+    </div>
+    <div id="invalid-pin-message" style="display: none;">
+      <p>You have used an Invalid PIN! Please try again.</p>
+      <button id="go-home" class="submit-button"
+        style="display: inline-block; min-width: 100px; width: auto; border-radius: 5px;" onclick="retry()">Try Again</button>
+    </div>
+
+    <form id="node-recharge-form" action="/subscribeNode" method="post">
+
+      <div class="form-group">
+        <label id="phone-label" for="pin">Node Recharge PIN</label>
+        <input type="text" name="pin" id="pin" class="form-control" placeholder="Enter your Node Recharge PIN"
+          required />
+      </div>
+      <input type="hidden" name="email" value="<%= data.school_info.email %>" />
+
+      <div class="form-group" style="display: flex; justify-content: center;">
+        <button type="button" id="back_b" class="back-button" onclick="location.href='/purchase-node';"
+          style="display: inline-block; min-width: 100px; width: auto; background-color: blue; color: white; border: none; border-radius: 5px; padding: 10px; margin-right: 10px;">
+          Back
+        </button>
+        <button type="submit" id="regist_b" class="submit-button"
+          style="display: inline-block; min-width: 100px; width: auto; border-radius: 5px;">
+          Recharge
+        </button>
+      </div>
+
+    </form>
+
+
+    <div class="text-center" style="margin-bottom: 30px;">
+      <a href="/" style="color: rgb(127, 159, 201);text-decoration: none;">Orbital Node Website</a>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      // Add an event listener to the form submission
+      $("#node-recharge-form").on("submit", function (event) {
+        event.preventDefault();
+        var formData = $(this).serialize();
+        var action = $(this).attr('action');
+        // Send the AJAX request
+        $.ajax({
+          url: action,
+          type: "POST",
+          data: formData,
+          success: function (data) {
+            if (data.feedback === 'ok') {
+              // Hide the form
+              $("#node-recharge-form").hide();
+              // Show the congratulatory message
+              $("#success-message").text("Congratulations! Your School account has been recharged with " + data.value + " Nodes.");
+              $("#success-message").show();
+            } else if (data.feedback === 'used') {
+              // Hide the form
+              alert("The PIN you entered has already been used.");
+            } else {
+              $("#node-recharge-form").hide();
+              $("#invalid-pin-message").show();
+            }
+          },
+          error: function (error) {
+            console.log(error);
+          }
+        });
+      });
+    });
+
+    function retry(){
+      window.location.href = "/purchase-node";
+    }
+    function home(){
+      window.location.href = "/home";
+    }
+  </script>
+</body>
+
+</html>
