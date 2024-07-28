@@ -4,11 +4,8 @@ const app = express();
 const path = require("path");
 const initRoutes = require("./routes");
 
-var corsOptions = {
-  origin: "https://orbitalnodetechnologies.com"
-};
 
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
