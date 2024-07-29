@@ -418,7 +418,7 @@
           </option>
           <% }); %>
       </select>
-      <button id="downloadBtn" class="btn btn-primary">Download Statement of Result</button>
+      <button id="downloadBtn" class="btn btn-primary">Download Master Score Scheet</button>
       <span class="loading">Processing Pleace wait ...</span>
     </div>
   </main><!-- End #main -->
@@ -478,7 +478,7 @@
           $('.loading').show();
           $('#downloadBtn').prop('disabled', true);
 
-          fetch('http://localhost:3000/download-master-scoresheet/' + encodeURIComponent(selectedClass), {
+          fetch('https://sjssn.onrender.com/download-master-scoresheet/' + encodeURIComponent(selectedClass), {
             method: 'GET',
           })
             .then(response => {
